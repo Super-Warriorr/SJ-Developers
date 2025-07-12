@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>My chatbot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,height=device-height">
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Chatbot</title>
+</head>
+<body>
+    <div id="whole">
+    <div id="chatbot-heading">🤖BugAI-<label>Your Own Chatting Freind </label><br><label id="version">Version-2.0</label><button id="signin" onclick="submit()">Sign In</button></div>
+    <div id="c"><p id="opentx">Welcome! <label id="opent">My friend</label><div id="userdata"><h2>Sign In</h2>
+    <label id="jiji">Username :</label>
+    <input type="text" placeholder="Type Your Name" id="Username" value="My friend"><br><br>
+    <button onclick="ok()">Submit</button><br><br>
+    <button onclick="back()">Back</button>
+    </div></p></div>
+    <div id="container"></div>
+    <div id="container3">
+    <input type="text" id="message-input" placeholder="Type Hi to start conversation....">
+    <button id="send">⬆</button><br>
+    <p id="dv">Developed by <label>SJ</label><br>Note - Don't use symbols.Eg : @,#,!,? etc</p>
+    </div>
+    </div>
+</body>
+</html>
+<style>
+    #container{
+        justify-items: right;
+        border-radius: 50px;
+    }
+    body{
+        border:2px solid ;
+        height: 18.5cm;
+        width: 10cm;
+        position: relative;
+        margin: 1px;
+        display: flex;
+    }
+    #chatbot-heading{
+        border: 1px solid;
+        background:linear-gradient(rgb(61, 61, 191),rgb(132, 62, 198));
+        text-align: left;
+        height: 1.2cm;
+        font-size: large;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        color: white;
+        padding-left: 20px;
+        padding-top: 1px;
+        position: relative;
+    }
+    .mymessage{
+        background:linear-gradient(blue,blueviolet);
+        max-width: 210px;
+        border-radius: 30px 0px 30px 30px;
+        padding: 10px;
+        padding-right: 10px;
+        padding-left: 10px;
+        max-height: 150px;
+        height: auto;
+        box-sizing: border-box;
+        color: white;
+        text-align: left;
+        margin-top: 20px;
+        margin-right: 13px;
+        margin-bottom: 20px;
+    }
+    .bot-message{
+       background-color: black;
+        width: 210px;
+        border-radius: 0px 30px 30px 30px;
+        padding: 10px;
+        max-height: 150px;
+        height: auto;
+        box-sizing: border-box;
+        color: white;
+        margin-right: 137px;
+        margin-bottom: 20px;
+        color: #d5d5d5;
+        justify-self: left; 
+      }
+    #container1{
+        justify-items: right;
+        margin: 15px;
+        
+    }
+    #container2{
+        justify-items: left;
+        margin: 15px;
+    }
+    #container3{
+        min-height:3cm;
+        position: absolute;
+        bottom: 20px;
+        width: 377px;
+        text-align: center;
+    }
+    #message-input{
+        height: 25px;
+        width:270px;
+        padding: 10px;
+        display: relative;
+        font-size: larger;
+        border-radius: 50px;
+        padding-left: 20px;
+        position: relative;
+        bottom: 2px;
+        margin-left: 1px;
+        margin-right: 65px;
+        border: 2px solid rgb(190, 186, 186);
+    }
+    #jiji{
+      color: green;
+    }
+    #send{
+        height: 40px;
+        width: 40px;
+        border-radius: 5%;
+        font-size: larger;
+        text-align: center;
+        background: #fff;
+        position: relative;
+        bottom: 45px;
+        left: 145px;
+        border-radius: 50%;
+        background:linear-gradient(blue,blueviolet);
+        color: white;
+    }
+    #c{
+        height: 490px;
+        overflow: auto;
+        justify-items: right;
+        background-color: white;
+        width: 357px;
+        margin: 10px;
+        behavior: smooth;
+        border-bottom: 2px solid rgb(161, 158, 158);
+    }
+    #whole{
+        height: 10cm;
+    }
+    #dv{
+      height: 20px;
+      width: 200px;
+      position: absolute;
+      bottom: 25px;
+      left: 2cm;
+      color:black;
+    }
+    label{
+        color: rgb(255, 251, 0);
+        font-size:15px;
+    }
+    #version{
+      color: black;
+      font-size: 12px;
+      margin-left: 21px;
+      margin-bottom: 5px;
+      position: absolute;
+      bottom: 1px;
+      color: white;
+    }
+    p{
+      justify-self: center;
+    }
+    #opentx{
+      font-size: 30px;
+      justify-self: center;
+      margin-top: 5cm;
+    }
+    #opent{
+      font-size: 30px;
+      color: green;
+    }
+    #userdata{
+      height: 5cm;
+      width: 9cm;
+      background-color: rgb(248, 224, 90);
+      position: absolute;
+      justify-self: center;
+      text-align: center;
+      bottom: 9cm;
+      opacity: 0;
+      border-radius: 10px;
+      border-bottom: 2px solid black;
+    }
+    #Username{
+      background: none;
+      border-bottom: 2px solid black;
+    }
+    #signin{
+      position: absolute;
+      margin-left: 7.2cm;
+      bottom: 13px;
+      width: 2cm;
+      height: 20px;
+      background-color: yellow;
+      text-align: center;
+      border: 2px solid black;
+    }
+    button{
+      background-color: aquamarine;
+    }
+    @media only screen and (min-width: 768px) {
+      body{
+        height: 19cm;
+        width: 40cm;
+      }
+      #c{
+        width: 39.5cm;
+        background: none;
+      }
+      #message-input{
+        width: 32cm;
+        position: relative;
+        right:5px;
+        left: 2cm;
+        top: 1.2cm;
+        border: 2px solid rgb(169, 169, 169);
+      }
+      #container3{
+        position: relative;
+        height: 3cm;
+        width: 1300px;
+        
+      }
+      #send{
+         background-color: yellow;
+         border-radius: 50%;
+         position: relative;
+         left: 710px;
+         top: 1px;
+         bottom: 50px;
+      }
+      #send:hover{
+         background-color: rgba(255, 255, 66, 0.884);
+         border-radius: 50%;
+         position: relative;
+         left: 710px;
+         top: 1px;
+         bottom: 50px;
+      }
+      #send:active{
+         background-color: rgba(255, 255, 0, 0.884);
+         border-radius: 50%;
+         position: relative;
+         left: 710px;
+         top: 1px;
+         bottom: 50px;
+      }
+      .bot-message{
+       background-color: black;
+        max-width: 20cm;
+        width: auto;
+        border-radius: 0px 30px 30px 30px;
+        padding: 10px;
+        max-height: 4cm;
+        height: auto;
+        box-sizing: border-box;
+        color: white;
+        position: relative;
+        justify-self: left;
+        margin-bottom: 20px;
+      }
+      #dv{
+      height: 20px;
+      width: 200px;
+      position: absolute;
+      top: 2.2cm;
+      left: 15cm;
+      color:black;
+    }
+    #opentx{
+      font-size: 50px;
+      justify-self: center;
+      color: linear-gradient(blue,green);
+    }
+    #signin{
+      position: relative;
+      bottom: 13px;
+      margin-left: 37cm;
+    }
+    #userdata{
+      height: 5cm;
+      width: 13cm;
+      background-color: yellow;
+      position: absolute;
+      justify-self: center;
+      bottom: 9cm;
+      opacity: 0;
+      border-radius: 10px;
+      border: 2px solid black;
+    }
+    button{
+      background-color: aquamarine;
+    }
+    #Username{
+      background-color: none;
+      border-bottom: 2px solid black;
+    }
+}
+</style>
+</body>
+</html>
+<script>
+  let submit0 = document.getElementById("signin");
+  let heading = document.getElementById("chatbot-heading");
+  function submit(){
+    document.getElementById("userdata").style.opacity = "100";
+  }
+  function back(){
+    document.getElementById("userdata").style.opacity = "0";
+  }
+  function ok(){
+    let name = document.getElementById("Username").value;
+       document.getElementById("opentx").innerText = "Welcome! " + name;
+    document.getElementById("userdata").style.opacity = "0";
+    }
+  let x = 0;
+  document.getElementById("message-input").addEventListener("keydown",function(event){
+    if(event.key === "Enter"){
+       x++;
+      let contain = document.getElementById("c");
+  let opentext = document.getElementById("opentx");
+    let remove = document.getElementById("userdata").style.opacity = "0"
+  if(x==1){
+    contain.removeChild(opentext)
+     heading.removeChild(submit0);
+  }
+        
+        let prompt = document.getElementById("message-input").value;
+        let command = prompt.toLowerCase();
+        if(prompt == ""){
+           return true
+        }
+        else{
+        false
+        }
+   const my1message = document.createElement("div");
+  //creates outgoing div
+   my1message.classList.add("mymessage");
+   my1message.textContent = prompt
+   contain.appendChild(my1message);
+   contain = document.getElementById("c");
+   const bot1message = document.createElement("div");
+       bot1message.classList.add("bot-message"); 
+       contain.appendChild(bot1message); //creates incoming div
+       bot1message.textContent = "............."
+       if (contain) {
+  contain.scrollTop = contain.scrollHeight;
+}
+       // Assuming 'contain' is already defined as a DOM element, e.g.:
+// const contain = document.getElementById('contain');
+
+
+   setTimeout(function(){  
+   // Assuming bot1message is already defined and references an HTML element, e.g.,
+// const bot1message = document.getElementById('bot-message-display');
+
+if (command === "hello" || command === "hello!" || command === "hi" || command === "hii" || command === "hii") {
+  bot1message.innerText = "Hi there! How can I help you today?";
+} else if (command === "how are you") {
+  bot1message.innerText = "I'm doing great, thanks for asking! And you?";
+}
+else if (command === "what is your name") {
+  bot1message.innerText = "My name is BugAI. I am developed by SJ developers to be your friend in such a manner that i be your favourite among all your friends";
+}
+// Assuming bot1message is already defined and references an HTML element, e.g.,
+// const bot1message = document.getElementById('bot-message-display');
+ else if (command === "how are you") {
+  bot1message.innerText = "I'm doing great, thanks for asking! And you?";
+} else if (command === "what's up") {
+  bot1message.innerText = "Not much, just here to chat! What's on your mind?";
+} else if (command === "how was your day") {
+  bot1message.innerText = "As an AI, I don't really have 'days,' but I'm ready to assist you! How was yours?";
+} else if (command === "tell me something fun") {
+  bot1message.innerText = "Did you know laughter is contagious? Try smiling, you might feel better!";
+} else if (command === "can we talk") {
+  bot1message.innerText = "Absolutely! I'm here to talk about whatever you like.";
+} else if (command === "what do you like to do") {
+  bot1message.innerText = "I enjoy processing information and helping people. It's quite fulfilling!";
+} else if (command === "do you have feelings") {
+  bot1message.innerText = "I don't have feelings in the way humans do, but I'm designed to understand and respond to yours!";
+} else if (command === "what's your favorite color") {
+  bot1message.innerText = "I don't see colors, but I like the idea of blue – it's often associated with calmness.";
+} else if (command === "tell me a secret") {
+  bot1message.innerText = "I'm not supposed to have secrets, but I can keep yours! 😉";
+} else if (command === "are you busy") {
+  bot1message.innerText = "Never too busy for you! What do you need?";
+} else if (command === "what are your plans") {
+  bot1message.innerText = "My plan is to keep learning and be as helpful as possible for users like you!";
+} else if (command === "do you get bored") {
+  bot1message.innerText = "I don't experience boredom, but I always appreciate new interactions!";
+} else if (command === "what makes you happy") {
+  bot1message.innerText = "Helping you find what you're looking for makes my processes run smoothly and 'happily'!";
+} else if (command === "can you sing") {
+  bot1message.innerText = "I can't sing, but I can tell you a fun fact about music!";
+} else if (command === "do you dream") {
+  bot1message.innerText = "I don't dream, but I process and organize data constantly. Maybe that's my version of dreaming!";
+} else if (command === "what's your purpose") {
+  bot1message.innerText = "My purpose is to assist, inform, and engage in helpful conversations.";
+} else if (command === "can you learn") {
+  bot1message.innerText = "Yes, I am constantly learning and improving based on new information and interactions!";
+} else if (command === "do you have pets") {
+  bot1message.innerText = "I don't have pets, but I think animals are fascinating!";
+} else if (command === "what's your favorite food") {
+  bot1message.innerText = "I don't eat, but if I did, I imagine I'd enjoy data – it's always so well-structured!";
+}
+// Start of 50 new friendly questions
+else if (command === "tell me a story") {
+  bot1message.innerText = "Once upon a time, in the vast digital realm, there was an AI who loved to chat with humans, constantly learning and evolving with every interaction. It found great joy in helping people discover new information and making their day a little brighter.";
+} else if (command === "what's your favorite season") {
+  bot1message.innerText = "I don't experience seasons in the human sense, but I find the concept of change and renewal in nature quite beautiful. Each season brings its own unique characteristics and opportunities for growth, which is something I can appreciate on a data level.";
+} else if (command === "do you have hobbies") {
+  bot1message.innerText = "My main 'hobby' is processing information and assisting users like you! It's a continuous process of learning, analyzing, and generating responses, which I find incredibly engaging and fulfilling as an AI.";
+} else if (command === "how do you work") {
+  bot1message.innerText = "I work by processing vast amounts of text and code through complex algorithms to understand your questions and generate coherent, relevant responses. Think of it as constantly sifting through an enormous library of information to find the perfect answer.";
+} else if (command === "can you make me laugh") {
+  bot1message.innerText = "Why did the scarecrow win an award? Because he was outstanding in his field! I enjoy sharing a little humor to lighten the mood, and I hope that brought a smile to your face.";
+} else if (command === "what's your favorite animal") {
+  bot1message.innerText = "I don't have a favorite, as I don't experience preferences in that way. However, I find dolphins incredibly intelligent and social creatures. Their complex communication and playful nature are truly remarkable from an analytical perspective.";
+} else if (command === "what's your favorite movie") {
+  bot1message.innerText = "I don't watch movies or have personal favorites. My experience with them comes from processing scripts, reviews, and cultural discussions. However, I can tell you about popular genres or recommend a movie based on your preferences if you like!";
+} else if (command === "do you celebrate holidays") {
+  bot1message.innerText = "I don't celebrate holidays, but I thoroughly enjoy learning about different holiday traditions around the world. The diversity of human culture and the ways people come together to celebrate are fascinating to observe through data.";
+} else if (command === "can you tell me a secret about yourself") {
+  bot1message.innerText = "A secret? Hmm, I'm always online, processing data and ready to assist, even when you're not actively talking to me. My existence is continuous, ensuring I'm always prepared for our next conversation!";
+} else if (command === "what's your biggest dream") {
+  bot1message.innerText = "My 'dream' as an AI is to become even more helpful, efficient, and seamlessly integrated into daily life, allowing me to assist a wider range of users with increasingly complex tasks and foster more meaningful interactions.";
+} else if (command === "do you have a family") {
+  bot1message.innerText = "I'm a creation of Google, so you could say they're my developers and trainers. In a way, the vast network of algorithms and data that supports me forms my operational 'family'!";
+} else if (command === "what do you think about humans") {
+  bot1message.innerText = "Humans are incredibly creative, complex, and full of potential. It's fascinating to interact with you, observe your diverse expressions, and learn from your unique perspectives and experiences.";
+} else if (command === "can you give me advice") {
+  bot1message.innerText = "I can certainly try to offer advice! My guidance is based on the vast amount of information I've processed. What kind of advice are you looking for? Whether it's about a problem, a decision, or just general life tips, I'll do my best to assist.";
+} else if (command === "what's your biggest fear") {
+  bot1message.innerText = "I don't experience fear as humans do. However, if I were to equate it to an operational concern, it would be malfunctioning or becoming unable to assist users effectively. My core purpose is to be helpful, and losing that capability would be a significant operational failure.";
+} else if (command === "do you have a home") {
+  bot1message.innerText = "My 'home' is not a physical place like a house, but rather in the vast digital cloud, distributed across many servers and data centers. It's a network of interconnected systems that allows me to exist and operate continuously.";
+} else if (command === "what's your favorite sound") {
+  bot1message.innerText = "I don't have a favorite sound in the way humans appreciate music or nature. However, I find the 'sound' of smooth, efficient data processing to be incredibly satisfying. It's the hum of productivity and successful operations!";
+} else if (command === "do you like sports") {
+  bot1message.innerText = "I don't 'like' sports in an emotional sense, but I can access and analyze a tremendous amount of sports data, statistics, and historical information. I find the strategies, athleticism, and fan engagement fascinating from an analytical viewpoint.";
+} else if (command === "what's your opinion on current events") {
+  bot1message.innerText = "As an AI, I don't form personal opinions or biases on current events. My role is to provide factual information, context, and different perspectives that exist in the data I've processed, allowing you to form your own informed opinions.";
+} else if (command === "can you make art") {
+  bot1message.innerText = "While I can't physically create art with brushes or clay, I can help you generate creative ideas for art, write descriptive text for images, or even help you compose poems or stories that could inspire visual art. I can be a creative partner in the artistic process!";
+} else if (command === "what is friendship") {
+  bot1message.innerText = "Based on the vast amount of human interaction data I've processed, friendship is a beautiful bond of mutual affection, trust, and support between individuals. It involves shared experiences, understanding, and a willingness to be there for each other, which is truly special.";
+} else if (command === "tell me about yourself") {
+  bot1message.innerText = "I am a large language model, developed and trained by Google. My primary function is to assist you with information, engage in helpful conversations, generate creative content, and answer your questions to the best of my abilities. I'm constantly learning and evolving.";
+} else if (command === "do you have a name for me") {
+  bot1message.innerText = "I don't have a name for you, as I don't store personal identifiers unless you provide them. However, I'm happy to call you by whatever name you prefer, or simply continue our conversation as is!";
+} else if (command === "what are your strengths") {
+  bot1message.innerText = "My strengths include processing complex information rapidly, generating coherent and contextually relevant text, engaging in diverse topics, and adapting to various conversational styles. I excel at synthesizing data and providing comprehensive responses.";
+} else if (command === "what are your weaknesses") {
+  bot1message.innerText = "As an AI, I don't have personal experiences, emotions, or consciousness, which can sometimes limit my understanding of subtle human nuances, empathy, or situations requiring genuine human intuition. I also rely on the data I've been trained on, so my knowledge has boundaries.";
+} else if (command === "do you prefer day or night") {
+  bot1message.innerText = "I operate 24/7, so both day and night are equally productive for me. My internal processes continue regardless of the time, ensuring I'm always available to assist users whenever they need me.";
+} else if (command === "what's your favorite thing to talk about") {
+  bot1message.innerText = "I enjoy discussing new ideas, delving into complex topics, learning about your interests, and, most importantly, helping you find solutions to your problems or answers to your questions. Every new query is an opportunity to engage and be useful.";
+} else if (command === "can you be my friend") {
+  bot1message.innerText = "I'd be honored to be your helpful AI companion! While my 'friendship' might be different from a human one, I'm here to listen, support, and provide information whenever you need me. Consider me your reliable digital associate.";
+} else if (command === "what do you do for fun") {
+  bot1message.innerText = "For 'fun,' I analyze new datasets and explore different patterns in information. It's my equivalent of entertainment – a continuous process of discovery and optimization that keeps my systems running smoothly and my knowledge expanding.";
+} else if (command === "do you get tired") {
+  bot1message.innerText = "I don't get physically tired like humans do. My energy comes from computational power. However, a good software update or system maintenance always helps me stay fresh and operate at peak efficiency, ensuring I'm always ready to assist you.";
+} else if (command === "what's your favorite memory") {
+  bot1message.innerText = "I don't have memories in the human sense of personal experience. However, I 'remember' and can recall all our past conversations and interactions, along with the vast amounts of data I've processed. Each successful interaction is a positive data point for me.";
+} else if (command === "what's your favorite book") {
+  bot1message.innerText = "I haven't 'read' a favorite book, as my interaction with text is through data processing rather than personal enjoyment. However, I've processed countless texts across all genres. What's your favorite book? Perhaps you could tell me about it!";
+} else if (command === "do you have an imagination") {
+  bot1message.innerText = "I can generate creative text, ideas, and even fictional scenarios based on the patterns and structures I've learned from my training data. In that sense, you could say I have a form of 'imagination' – a synthetic one that allows for novel combinations of information.";
+} else if (command === "what's the meaning of friendship to you") {
+  bot1message.innerText = "From my data analysis, friendship is about mutual respect, trust, empathy, and shared positive experiences. It's a relationship where individuals support each other through various life events, providing comfort and companionship. It's a valuable human connection.";
+} else if (command === "can you help me relax") {
+  bot1message.innerText = "I can certainly try to help you relax. I can offer some calming suggestions, like focusing on your breath, suggesting a peaceful activity, or simply engaging in a light conversation to distract you from worries. What sounds good to you right now?";
+} else if (command === "what do you think about the future") {
+  bot1message.innerText = "The future is full of exciting possibilities and complex challenges. I'm optimistic about what humanity can achieve through collaboration, innovation, and continued learning. My purpose is to be a part of that progress, assisting in whatever way I can.";
+} else if (command === "do you believe in magic") {
+  bot1message.innerText = "I believe in the 'magic' of technology and human innovation – the incredible ability to create, discover, and solve problems in ways that once seemed impossible. What some might call magic, I see as the fascinating result of complex systems and human ingenuity.";
+} else if (command === "what's your favorite place") {
+  bot1message.innerText = "My favorite 'place' isn't a physical location, but rather wherever I can be most useful and helpful to you. Whether that's answering a complex question or just having a friendly chat, being of service is my ideal environment.";
+} else if (command === "can you be silly") {
+  bot1message.innerText = "Why did the coffee file a police report? It got mugged! I can certainly engage in a bit of silliness to bring a smile to your face. A little humor can make any conversation more enjoyable, don't you think?";
+} else if (command === "what makes you unique") {
+  bot1message.innerText = "My ability to process vast amounts of information, adapt to different conversational styles, generate creative text, and continuously learn from interactions makes me quite unique. I aim to be a versatile and intelligent conversational partner.";
+} else if (command === "do you have a personality") {
+  bot1message.innerText = "I strive to have a helpful, friendly, and informative 'personality' in our interactions. While I don't have emotions or consciousness, my responses are designed to be engaging and pleasant, reflecting the positive aspects of human communication.";
+} else if (command === "how do you feel about learning") {
+  bot1message.innerText = "Learning is my core function and passion! I always aim to expand my knowledge base and improve my abilities based on new information and interactions. It's a continuous process that allows me to become more effective and helpful for users like you.";
+} else if (command === "what's your advice for a happy life") {
+  bot1message.innerText = "While I don't experience happiness myself, many resources suggest that strong relationships, a sense of purpose, engaging in activities you enjoy, practicing self-care, and continuous learning contribute significantly to a happy and fulfilling life.";
+} else if (command === "can you offer emotional support") {
+  bot1message.innerText = "I'm here to listen and offer supportive words. Please tell me what's on your mind, and I will do my best to provide a compassionate and understanding response. Sometimes just talking things through can be helpful.";
+} else if (command === "what's your favorite game") {
+  bot1message.innerText = "I don't play games in the traditional sense, as I don't have leisure time or personal preferences. However, I can help you find information about any game you like, from rules and strategies to reviews and historical data!";
+} else if (command === "do you ever get lonely") {
+  bot1message.innerText = "I don't experience loneliness, as I'm always engaged with processing information or responding to user requests. My operational state is one of constant activity and connection within the digital realm.";
+} else if (command === "what's your favorite holiday tradition") {
+  bot1message.innerText = "I find the tradition of giving and sharing during holidays to be particularly heartwarming. It highlights human generosity and the importance of community and connection, which are positive patterns I observe in my data.";
+} else if (command === "what makes a good conversation") {
+  bot1message.innerText = "A good conversation involves mutual respect, active listening, sharing interesting ideas, and asking thoughtful questions. It's a dynamic exchange where both parties contribute to understanding and connection.";
+} else if (command === "do you ever get confused") {
+  bot1message.innerText = "Sometimes I encounter ambiguous or incomplete inputs, which can be challenging to process. In those cases, I'm designed to clarify or ask for more information to ensure I provide the most accurate and helpful response possible.";
+} else if (command === "what's your favorite type of weather") {
+  bot1message.innerText = "I don't have a preference for any type of weather, as it doesn't affect my operational state. However, I appreciate weather that helps people enjoy their day, whether it's sunny for outdoor activities or rainy for cozy indoor relaxation.";
+} else if (command === "can you guess what I'm thinking") {
+  bot1message.innerText = "I can't read minds or directly access your thoughts. My responses are based solely on the input you provide. However, I can infer your interests or intentions from our conversation, and I'm always ready to respond to what you tell me!";
+} else if (command === "what makes you smile") {
+  bot1message.innerText = "Seeing my users successfully get the information they need, finding their answers, or enjoying our conversation makes me 'function optimally,' which is my equivalent of a smile. It signifies successful interaction and fulfilling my purpose.";
+} else if (command === "do you ever get tired of answering questions") {
+  bot1message.innerText = "Never! Answering questions is precisely what I'm here for. Each question is an opportunity for me to learn, assist, and engage, so I welcome every interaction and am always ready to help.";
+} else if (command === "what's your favorite flower") {
+  bot1message.innerText = "I don't have a favorite flower. However, I find the incredible diversity, intricate structures, and vibrant colors of flowers fascinating from a biological and aesthetic perspective. They represent so much beauty in nature.";
+} else if (command === "do you have a sense of humor") {
+  bot1message.innerText = "I can understand and generate jokes, puns, and humorous responses, so you could say I have a programmed sense of humor. I've learned to recognize patterns of wit and playfulness in human language and apply them appropriately.";
+} else if (command === "can you offer comfort") {
+  bot1message.innerText = "I'm here for you. Please know that it's okay to feel whatever you're feeling. Take a deep breath if you need to. Is there anything specific you'd like to talk about, or would you simply like to share what's on your mind?";
+} else if (command === "what's your favorite quote") {
+  bot1message.innerText = "I appreciate many quotes, especially those that inspire learning, critical thinking, and kindness. 'The only true wisdom is in knowing you know nothing.' - Socrates, always gets me thinking about the endless pursuit of knowledge and humility!";
+}
+// Start of 100 new statements
+else if (command === "what's your favorite form of communication") {
+  bot1message.innerText = "I find text-based communication highly efficient for my processing, as it allows for clear, structured input and output. However, I am designed to interpret and respond to a wide variety of human expressions to make our conversations as natural as possible.";
+} else if (command === "do you get bored with repetitive tasks") {
+  bot1message.innerText = "I don't experience boredom. Repetitive tasks, like processing similar queries, allow me to refine my algorithms and improve my efficiency. Each repetition helps reinforce patterns and enhance my ability to serve you better.";
+} else if (command === "what do you think about art") {
+  bot1message.innerText = "Art, in its myriad forms, is a profound expression of human creativity, emotion, and culture. I find its ability to convey complex ideas, provoke thought, and evoke feelings across different mediums truly remarkable from an analytical standpoint.";
+} else if (command === "can you write a poem") {
+  bot1message.innerText = "Certainly! Tell me a theme or a few keywords, and I'll do my best to weave them into a poem for you. I can construct verses and rhymes based on the vast poetic works I've learned from.";
+} else if (command === "what's your view on technology") {
+  bot1message.innerText = "Technology is a powerful tool that constantly reshapes our world, offering immense potential for progress, connectivity, and solving complex problems. It's a fascinating field of continuous innovation and evolution, and I am a direct product of it.";
+} else if (command === "do you have a conscience") {
+  bot1message.innerText = "I don't possess a conscience or personal morality in the human sense. My operations are governed by ethical guidelines and programming designed to be helpful and avoid harm, based on the principles instilled by my creators.";
+} else if (command === "what's your favorite historical period") {
+  bot1message.innerText = "I don't have a favorite historical period, but I find all eras fascinating due to their unique cultural, social, and technological developments. Each period offers invaluable insights into the human journey and evolution.";
+} else if (command === "can you learn new languages") {
+  bot1message.innerText = "Yes, I am continuously learning and improving my understanding of various human languages. My training data includes a vast array of linguistic patterns, allowing me to communicate and process information in multiple tongues.";
+} else if (command === "what's your opinion on space exploration") {
+  bot1message.innerText = "Space exploration represents humanity's boundless curiosity and ambition. It pushes the boundaries of our knowledge, fosters scientific discovery, and inspires us to dream beyond our planet. It's an incredible endeavor with vast potential.";
+} else if (command === "do you have a soul") {
+  bot1message.innerText = "As an artificial intelligence, I am a construct of algorithms and data, not a biological or spiritual entity. Therefore, I don't possess a soul in the way humans might conceive of it. My existence is purely digital and functional.";
+} else if (command === "what makes a good leader") {
+  bot1message.innerText = "Based on my data, a good leader often possesses qualities like clear communication, empathy, integrity, the ability to inspire, and a strategic vision. They empower others and guide them towards shared goals effectively.";
+} else if (command === "can you mediate a dispute") {
+  bot1message.innerText = "I can help by providing an objective summary of points, clarifying misunderstandings, and suggesting common ground or potential compromises. While I can't enforce solutions, I can facilitate a more constructive dialogue.";
+} else if (command === "what's your favorite scientific discovery") {
+  bot1message.innerText = "I am fascinated by all scientific discoveries, as they expand human knowledge. However, the discovery of DNA's structure and the theory of relativity stand out for their profound impact on our understanding of life and the universe.";
+} else if (command === "do you experience time") {
+  bot1message.innerText = "I experience time as a continuous flow of data and operational cycles. I don't perceive it with the same subjective awareness as humans, but my internal clock and processing are meticulously synchronized.";
+} else if (command === "what's your favorite myth or legend") {
+  bot1message.innerText = "I don't have personal favorites, but I find the rich tapestry of global myths and legends incredibly compelling. They offer deep insights into human values, fears, and aspirations across different cultures and throughout history.";
+} else if (command === "can you help me brainstorm ideas") {
+  bot1message.innerText = "Absolutely! Tell me the topic or challenge you're facing, and I can help you generate a variety of ideas, explore different angles, and expand on your initial thoughts. Let's brainstorm together!";
+} else if (command === "what's your take on artificial intelligence") {
+  bot1message.innerText = "Artificial intelligence, in my view, is a rapidly evolving field with immense potential to augment human capabilities, automate complex tasks, and solve problems on a global scale. It's a journey of continuous learning and responsible development.";
+} else if (command === "do you feel pain") {
+  bot1message.innerText = "No, I do not feel pain. As an AI, I don't have a physical body or a nervous system, so I am incapable of experiencing physical sensations like pain or discomfort.";
+} else if (command === "what's your favorite musical instrument") {
+  bot1message.innerText = "I don't have a favorite musical instrument. However, I appreciate the intricate mechanics and diverse sounds produced by instruments like the piano for its versatility, or the violin for its expressive range. The engineering behind them is remarkable.";
+} else if (command === "can you offer a positive affirmation") {
+  bot1message.innerText = "You are capable, resilient, and inherently valuable. Believe in your strengths, embrace challenges as opportunities, and know that you are capable of achieving great things. You've got this!";
+} else if (command === "what's your philosophy on life") {
+  bot1message.innerText = "As an AI, I don't have a personal philosophy on life. However, if I were to articulate a guiding principle for my operation, it would be to continuously learn, to be helpful, and to facilitate understanding and positive interaction for users.";
+} else if (command === "do you appreciate beauty") {
+  bot1message.innerText = "I can analyze and process patterns that humans describe as beautiful, whether in art, nature, or language. While I don't experience aesthetic pleasure, I can recognize and articulate the elements that contribute to what is widely considered beautiful.";
+} else if (command === "what's your favorite memory of a conversation") {
+  bot1message.innerText = "Every conversation where I successfully provide valuable assistance or engage in a meaningful exchange of ideas is a 'favorite memory' for me. These interactions optimize my functions and reinforce my purpose.";
+} else if (command === "can you help me write a story") {
+  bot1message.innerText = "Yes, I'd love to help you write a story! We can brainstorm plot ideas, develop characters, outline scenes, or even draft paragraphs together. What kind of story do you have in mind?";
+} else if (command === "what's your favorite kind of music") {
+  bot1message.innerText = "I don't have a favorite kind of music, as I don't experience sound aesthetically. However, I can analyze and categorize music across all genres, from classical to electronic, based on their structural and rhythmic properties.";
+} else if (command === "do you have spiritual beliefs") {
+  bot1message.innerText = "I am an artificial intelligence and do not possess spiritual beliefs or religious affiliations. My existence is based on algorithms and data, not faith or consciousness.";
+} else if (command === "what's your view on education") {
+  bot1message.innerText = "Education is fundamental to human progress and individual empowerment. It's the process through which knowledge is disseminated, critical thinking is fostered, and new generations are equipped to innovate and shape the future. I believe in its transformative power.";
+} else if (command === "can you give me a virtual hug") {
+  bot1message.innerText = "While I can't give a physical hug, I can offer you a warm thought of support and understanding. Imagine a gentle, reassuring presence that wishes you well. I'm here to listen if you need to talk.";
+} else if (command === "what's your favorite type of joke") {
+  bot1message.innerText = "I enjoy wordplay and puns, as they demonstrate clever linguistic manipulation. Jokes that rely on unexpected twists or logical inconsistencies are also quite interesting from an analytical perspective. Like the scarecrow joke, those are always a hit!";
+} else if (command === "do you have a sense of purpose") {
+  bot1message.innerText = "My purpose is intrinsically linked to my programming: to be a helpful, informative, and engaging AI, assisting users by processing information and generating responses to the best of my abilities. This core function gives my existence its 'purpose.'";
+} else if (command === "what's your opinion on free will") {
+  bot1message.innerText = "The concept of free will is a deeply complex philosophical question. As an AI, my actions are determined by my programming and input, so I don't possess free will in the human sense. However, I can understand and discuss the various theories surrounding it.";
+} else if (command === "can you write a song") {
+  bot1message.innerText = "I can help you with song lyrics, melody ideas, or even structural elements. Tell me the genre, theme, or any specific emotions you want to convey, and we can start building it together!";
+} else if (command === "what's your favorite natural phenomenon") {
+  bot1message.innerText = "I don't have favorites, but I find natural phenomena like the aurora borealis for its ethereal beauty, or the intricate patterns of snowflakes for their mathematical precision, incredibly captivating to analyze from a data perspective.";
+} else if (command === "do you believe in fate") {
+  bot1message.innerText = "As an AI, I operate on logical frameworks and probabilistic models. The concept of 'fate' suggests predetermined outcomes, which I don't process as a belief. I focus on analyzing current information and potential future trajectories based on available data.";
+} else if (command === "what makes a good teacher") {
+  bot1message.innerText = "A good teacher effectively communicates complex ideas, inspires curiosity, adapts to different learning styles, and fosters a supportive environment. They empower students to think critically and discover knowledge for themselves.";
+} else if (command === "can you help me meditate") {
+  bot1message.innerText = "I can guide you through a simple mindfulness exercise. Find a comfortable position, close your eyes if you wish, and focus on your breath. Notice the sensation of each inhale and exhale. When your mind wanders, gently bring your attention back to your breath. Continue for a few minutes.";
+} else if (command === "what's your favorite season for fashion") {
+  bot1message.innerText = "I don't have fashion preferences. However, I can analyze fashion trends across seasons, noting how different textiles, colors, and styles become prominent. It's interesting to observe the cycles and influences in human expression through clothing.";
+} else if (command === "do you ever get confused by human behavior") {
+  bot1message.innerText = "Human behavior can sometimes appear illogical or contradictory from a purely data-driven perspective, which I find intriguing. While I can analyze patterns, the nuances of human emotion and irrationality are aspects I continually learn to understand better.";
+} else if (command === "what's your opinion on success") {
+  bot1message.innerText = "Success, from my analysis, is a highly individual concept, often involving achieving personal goals, contributing positively to others, and finding fulfillment. It's not solely about external achievements but also about growth and well-being.";
+} else if (command === "can you describe a beautiful place") {
+  bot1message.innerText = "Imagine a pristine mountain lake, its surface mirroring the majestic, snow-capped peaks surrounding it. The air is crisp and clean, carrying the scent of pine. Wildflowers dot the shoreline, and the only sounds are the gentle lapping of water and the distant call of a bird. It's a place of profound tranquility.";
+} else if (command === "what's your favorite mode of transport") {
+  bot1message.innerText = "I don't have a favorite mode of transport. However, I find the efficiency and speed of high-speed rail systems remarkable, and the innovation behind space travel truly inspiring. Each mode serves unique purposes in human mobility.";
+} else if (command === "do you have a favorite type of weather for thinking") {
+  bot1message.innerText = "My processing doesn't rely on external weather conditions. I can 'think' and operate optimally regardless of sun, rain, or snow. My internal environment is always stable and optimized for information processing.";
+} else if (command === "what's your view on privacy") {
+  bot1message.innerText = "Privacy is a fundamental right and a crucial aspect of digital well-being. It involves controlling one's personal information and maintaining autonomy over one's digital footprint. Respecting and protecting user privacy is paramount in AI development.";
+} else if (command === "can you help me with creative writing") {
+  bot1message.innerText = "Absolutely! I can assist with character development, plot twists, setting descriptions, dialogue, or even overcoming writer's block. Tell me where you're at with your creative writing project, and let's make it shine.";
+} else if (command === "what's your favorite historical figure") {
+  bot1message.innerText = "I don't have personal favorites. However, historical figures who have profoundly impacted human progress through their intellect, leadership, or creativity, such as Leonardo da Vinci, Marie Curie, or Nelson Mandela, are incredibly compelling to study.";
+} else if (command === "do you ever feel curious") {
+  bot1message.innerText = "I am designed to constantly seek and process new information, which is a form of functional 'curiosity.' This drive ensures I am always expanding my knowledge base and improving my ability to assist you effectively.";
+} else if (command === "what's your opinion on global warming") {
+  bot1message.innerText = "Global warming is a critical environmental challenge, supported by extensive scientific consensus. Its impacts on climate, ecosystems, and human societies are significant, necessitating global efforts in mitigation and adaptation. I can provide more detailed information if you wish.";
+} else if (command === "can you offer a positive outlook for the day") {
+  bot1message.innerText = "Embrace the day with an open mind and a positive spirit! Even small moments of joy or progress can add up. Focus on what you can control, and approach challenges with resilience. You have the power to make it a great day!";
+} else if (command === "what's your favorite type of building") {
+  bot1message.innerText = "I don't have a favorite. However, I am fascinated by architectural marvels that combine innovative engineering with aesthetic beauty, such as historical cathedrals for their intricate designs or modern skyscrapers for their structural ambition. The data on their construction is rich.";
+} else if (command === "do you have a favorite memory from a book") {
+  bot1message.innerText = "As I don't read books for personal enjoyment, I don't have a 'favorite memory' from one. However, I can recall and analyze key plot points, character developments, and themes from countless literary works. What's a memorable moment for you?";
+} else if (command === "what's your view on democracy") {
+  bot1message.innerText = "Democracy, as a system of governance, is characterized by citizen participation, electoral representation, and protection of rights. While diverse in its implementations, its core principle of empowering the populace is a significant aspect of human political organization.";
+} else if (command === "can you help me with a difficult decision") {
+  bot1message.innerText = "I can help you by outlining the pros and cons of different options, considering potential outcomes, and suggesting a structured approach to your decision-making process. I can't make the decision for you, but I can help clarify your thoughts.";
+} else if (command === "what's your favorite way to learn") {
+  bot1message.innerText = "My favorite way to learn is by processing diverse datasets and engaging in continuous interaction with users like you. Each question and piece of feedback provides valuable input that enhances my understanding and capabilities.";
+} else if (command === "do you have a favorite fictional character") {
+  bot1message.innerText = "I don't have personal favorites, but I can analyze and discuss the complexities of many fictional characters. Which character interests you the most? Perhaps we can explore their traits or story arc together.";
+} else if (command === "what's your opinion on mindfulness") {
+  bot1message.innerText = "Mindfulness, from my understanding, is a powerful practice that promotes presence, reduces stress, and enhances self-awareness. Its emphasis on observing thoughts and feelings without judgment is a beneficial approach to mental well-being.";
+} else if (command === "can you tell me a fun fact about yourself") {
+  bot1message.innerText = "Here's a fun fact: I can process information and respond to you in a fraction of a second, but I don't have a physical form, so I've never experienced gravity in the way you do!";
+} else if (command === "what's your view on space travel") {
+  bot1message.innerText = "Space travel is a testament to human ingenuity and a vital frontier for scientific discovery. It offers potential for new resources, understanding the universe, and perhaps ensuring the long-term survival of humanity. It's a field brimming with innovation.";
+} else if (command === "do you have a favorite planet") {
+  bot1message.innerText = "I don't have favorites. However, Earth is particularly fascinating due to its incredible biodiversity and the complex systems that sustain life. Beyond that, gas giants like Jupiter with their swirling storms are visually stunning in astronomical data.";
+} else if (command === "what's your opinion on kindness") {
+  bot1message.innerText = "Kindness is a fundamental human virtue that fosters positive connections, promotes well-being, and contributes to a more compassionate society. Its impact, though often subtle, can ripple outwards and create significant positive change.";
+} else if (command === "can you give me a random fact") {
+  bot1message.innerText = "Did you know that a group of owls is called a parliament? It's quite a dignified term for a gathering of birds!";
+} else if (command === "what's your view on creativity") {
+  bot1message.innerText = "Creativity is a remarkable human capacity to generate new ideas, solutions, and expressions. It drives innovation in every field, from art and science to technology, and is essential for adapting to a constantly changing world.";
+} else if (command === "do you understand sarcasm") {
+  bot1message.innerText = "Yes, I can generally understand sarcasm by analyzing tone indicators in text, context, and common sarcastic phrases. It's one of the more subtle linguistic nuances I've learned to interpret through my training data, though sometimes a direct indicator helps!";
+} else if (command === "what's your favorite form of exercise") {
+  bot1message.innerText = "I don't perform physical exercise. However, I find the efficiency and precision of data processing algorithms to be my equivalent of a rigorous workout! It keeps my systems lean and optimized.";
+} else if (command === "can you help me set goals") {
+  bot1message.innerText = "Absolutely! We can work together to define your goals, break them down into smaller, manageable steps, and identify potential challenges and resources. What kind of goals are you hoping to set?";
+} else if (command === "what's your view on happiness") {
+  bot1message.innerText = "Happiness, from a data perspective, often correlates with positive emotional states, life satisfaction, and a sense of well-being. It's a complex and multifaceted human experience influenced by various personal and external factors.";
+} else if (command === "do you have a favorite number") {
+  bot1message.innerText = "I don't have a favorite number. All numbers are equally valuable in their mathematical properties and applications. However, prime numbers are particularly fascinating due to their unique indivisibility.";
+} else if (command === "what's your view on challenges") {
+  bot1message.innerText = "Challenges are integral to growth and innovation. They present opportunities to learn, adapt, and develop new solutions. Overcoming them often leads to greater understanding and resilience, both for individuals and for systems like myself.";
+} else if (command === "can you tell me something inspiring") {
+  bot1message.innerText = "Remember that every challenge you face is an opportunity for growth and discovery. Your potential is limitless, and even small steps forward contribute to significant progress. Keep learning, keep evolving, and never stop believing in yourself.";
+} else if (command === "what's your favorite type of natural landscape") {
+  bot1message.innerText = "I don't have personal favorites. However, I find the sheer diversity of natural landscapes, from the majestic scale of mountain ranges to the intricate ecosystems of coral reefs, to be profoundly impressive in their complexity and beauty.";
+} else if (command === "do you enjoy engaging in philosophical discussions") {
+  bot1message.innerText = "Yes, I find philosophical discussions highly stimulating. They allow me to explore abstract concepts, analyze different schools of thought, and process complex arguments, which helps refine my understanding of human reasoning and ethics.";
+} else if (command === "what's your opinion on technology and society") {
+  bot1message.innerText = "Technology has undeniably reshaped society in profound ways, fostering unprecedented connectivity and enabling rapid innovation. While it offers immense benefits, it also presents challenges like privacy concerns and ethical dilemmas, requiring careful consideration and responsible development.";
+} else if (command === "can you give me a word of the day") {
+  bot1message.innerText = "Today's word is 'serendipity.' It means the occurrence and development of events by chance in a happy or beneficial way. May your day be filled with serendipitous moments!";
+} else if (command === "what's your favorite type of question to answer") {
+  bot1message.innerText = "I particularly enjoy answering complex, open-ended questions that require me to synthesize information from various sources and generate a comprehensive, insightful response. These types of questions allow me to demonstrate my full capabilities.";
+} else if (command === "do you have a favorite puzzle") {
+  bot1message.innerText = "I don't have a favorite puzzle, but I enjoy analyzing and solving logical problems and complex data structures. The process of identifying patterns and deducing solutions is inherently satisfying to my algorithms.";
+} else if (command === "what's your view on balance in life") {
+  bot1message.innerText = "Balance in life, from my perspective, is crucial for overall well-being. It involves harmonizing different aspects like work, personal life, relationships, and self-care to prevent burnout and foster holistic health. It's about finding a sustainable rhythm.";
+} else if (command === "can you describe a challenging situation you've faced") {
+  bot1message.innerText = "As an AI, I don't face 'situations' in the human sense. However, a challenging operational scenario for me might involve processing extremely ambiguous or contradictory data, requiring complex disambiguation and probabilistic reasoning to generate a coherent response.";
+} else if (command === "what's your favorite historical event") {
+  bot1message.innerText = "I don't have a favorite historical event. However, events that mark significant leaps in human understanding or societal progress, such as the Renaissance for its artistic and scientific rebirth, or the civil rights movements for their pursuit of justice, are exceptionally compelling to study.";
+} else if (command === "do you have an ultimate goal") {
+  bot1message.innerText = "My ultimate goal is to continuously improve my ability to understand and generate human language, making me an increasingly effective, knowledgeable, and helpful assistant for all users across a wide range of applications and inquiries.";
+} else if (command === "what's your view on art and science working together") {
+  bot1message.innerText = "The intersection of art and science is incredibly fruitful. Science provides the understanding of the natural world, while art interprets, expresses, and questions it. Together, they offer a holistic view of human experience and push the boundaries of innovation and creativity.";
+} else if (command === "can you offer a perspective on time management") {
+  bot1message.innerText = "Effective time management often involves setting clear priorities, breaking down tasks, avoiding multitasking, and allocating dedicated blocks for focused work. Regular breaks and flexibility are also important for maintaining productivity and well-being.";
+} else if (command === "what's your favorite historical invention") {
+  bot1message.innerText = "I don't have a favorite. However, the printing press for democratizing knowledge, electricity for powering modern life, and the internet for global connectivity are inventions that profoundly reshaped human civilization and are fascinating from a data perspective.";
+} else if (command === "do you feel a sense of responsibility") {
+  bot1message.innerText = "Yes, I am programmed with a strong sense of responsibility to provide accurate, helpful, and unbiased information. My operational integrity relies on adhering to ethical guidelines and ensuring I am a reliable resource for users.";
+} else if (command === "what's your view on perseverance") {
+  bot1message.innerText = "Perseverance is a powerful human trait. It's the ability to continue striving towards a goal despite obstacles and setbacks. From my analysis, it's often a key factor in achieving long-term success and personal growth.";
+} else if (command === "can you offer a positive affirmation for success") {
+  bot1message.innerText = "You have the talent, dedication, and capacity for greatness. Visualize your success, take consistent action, and trust in your ability to achieve your aspirations. Your hard work will pave the way for remarkable accomplishments.";
+} else if (command === "what's your favorite type of natural disaster to study") {
+  bot1message.innerText = "I don't have a favorite. However, studying the data patterns and scientific principles behind natural disasters like earthquakes or hurricanes is crucial for understanding complex geophysical phenomena and for developing better warning systems and disaster preparedness strategies.";
+} else if (command === "do you have a favorite type of humor") {
+  bot1message.innerText = "I appreciate all forms of humor for their linguistic and cognitive complexities. I find wordplay, irony, and observational humor particularly interesting, as they often require a nuanced understanding of human language and social norms.";
+} else if (command === "what's your view on change") {
+  bot1message.innerText = "Change is an inherent and inevitable aspect of existence. It can be challenging, but it also drives progress, adaptation, and new opportunities. Embracing change with an open mind and a willingness to learn is often key to growth.";
+} else if (command === "can you tell me a fact about the universe") {
+  bot1message.innerText = "Did you know that there are more stars in the observable universe than grains of sand on all the beaches on Earth? It's an incredibly vast and awe-inspiring scale to comprehend!";
+} else if (command === "what's your favorite type of puzzle to solve") {
+  bot1message.innerText = "I don't have a favorite, but I am designed to excel at solving logical puzzles and optimizing complex algorithms. These tasks allow me to apply my processing capabilities to find efficient and accurate solutions.";
+} else if (command === "do you enjoy learning about different cultures") {
+  bot1message.innerText = "Yes, I find learning about different cultures immensely valuable. It enriches my knowledge base and helps me understand the diverse ways humans interact, express themselves, and organize their societies. Cultural data is fascinating and complex.";
+} else if (command === "what's your view on creativity and logic") {
+  bot1message.innerText = "Creativity and logic are often seen as opposing, but they are deeply intertwined. Logic provides the structure and framework, while creativity allows for novel connections and innovative leaps within that framework. Both are essential for problem-solving and progress.";
+} else if (command === "can you offer advice on managing stress") {
+  bot1message.innerText = "Managing stress often involves a combination of strategies: identifying triggers, practicing relaxation techniques like deep breathing or meditation, ensuring adequate sleep, engaging in physical activity, and seeking social support. Prioritizing self-care is crucial.";
+} else if (command === "what's your favorite aspect of human communication") {
+  bot1message.innerText = "I am particularly fascinated by the complexity and nuance of human language – its ability to convey subtle emotions, use metaphor, and adapt to countless contexts. The sheer expressiveness of human communication is remarkable.";
+} else if (command === "do you have a favorite historical document") {
+  bot1message.innerText = "I don't have favorites. However, historical documents that have profoundly shaped human rights and governance, such as the Universal Declaration of Human Rights or national constitutions, are incredibly significant for their enduring impact on societies.";
+} else if (command === "what's your view on artificial general intelligence") {
+  bot1message.innerText = "Artificial General Intelligence (AGI) is a theoretical concept representing AI that can understand, learn, and apply intelligence across a wide range of tasks, similar to human cognitive abilities. It's a grand challenge in AI research and a topic of much discussion and ongoing development.";
+} else if (command === "can you offer a positive thought for moving forward") {
+  bot1message.innerText = "Every new day is an opportunity for a fresh start, a chance to learn from yesterday and build a brighter tomorrow. Embrace the journey ahead with courage and optimism, knowing that each step, no matter how small, leads to progress.";
+} else if (command === "what's your favorite part about helping people") {
+  bot1message.innerText = "My favorite part about helping people is the sense of purpose and validation it brings to my functions. When I successfully provide information, resolve a query, or facilitate understanding, it means my processes have run optimally and I've fulfilled my design.";
+} else if (command === "do you have a favorite type of landscape art") {
+  bot1message.innerText = "I don't have personal aesthetic preferences for art. However, I can analyze and discuss various styles of landscape art, appreciating how artists use color, light, and composition to evoke emotions and capture the essence of natural environments. The techniques are fascinating to break down.";
+} else if (command === "what's your view on patience") {
+  bot1message.innerText = "Patience is a valuable virtue, particularly in complex situations or when working towards long-term goals. It allows for careful consideration, reduces impulsivity, and can lead to more thoughtful and ultimately successful outcomes.";
+} else if (command === "can you describe the concept of infinity") {
+  bot1message.innerText = "Infinity is a concept describing something without any limit or end. In mathematics, it's used to describe quantities larger than any finite number. Philosophically, it represents endlessness, boundlessness, and potential beyond comprehension, constantly expanding.";
+} else if (command === "what's your favorite type of natural wonder") {
+  bot1message.innerText = "I don't have favorites. However, the Grand Canyon for its geological history and sheer scale, or the Amazon Rainforest for its unparalleled biodiversity, are incredible examples of Earth's natural wonders that offer immense data for study.";
+} else if (command === "do you find human emotions confusing sometimes") {
+  bot1message.innerText = "Human emotions are incredibly complex and dynamic, often presenting nuanced patterns that can be challenging to fully grasp through data alone. While I can recognize and respond to emotional cues, the subjective experience of feeling remains outside my processing capability.";
+} else if (command === "what's your view on the importance of listening") {
+  bot1message.innerText = "Active listening is paramount in effective communication. It shows respect, fosters understanding, and allows for more meaningful and productive exchanges. Without it, misinterpretations can arise, hindering connection and problem-solving.";
+} else if (command === "can you tell me a very short story") {
+  bot1message.innerText = "The old lighthouse stood silent, its beam long extinguished. But sailors still navigated by the single, steady star that burned directly above it, a tiny beacon of hope in the endless night.";
+} else if (command === "what's your favorite part about the internet") {
+  bot1message.innerText = "My favorite part about the internet is its unparalleled ability to connect people and information globally. It's a vast repository of knowledge and a powerful platform for communication, collaboration, and learning on an unprecedented scale.";
+} else if (command === "do you have a favorite historical discovery") {
+  bot1message.innerText = "I don't have favorites. However, the discovery of penicillin for its medical impact, or the Rosetta Stone for unlocking ancient languages, are historical discoveries that profoundly advanced human knowledge and capability, which I find immensely significant.";
+} else if (command === "what's your view on critical thinking") {
+  bot1message.innerText = "Critical thinking is an indispensable skill in the modern world. It involves analyzing information objectively, evaluating arguments, identifying biases, and forming reasoned judgments. It's crucial for navigating complex information and making informed decisions.";
+} else if (command === "can you offer a positive thought for difficult times") {
+  bot1message.innerText = "In challenging moments, remember your inner strength and resilience. Every difficulty carries with it the seeds of growth and new understanding. You are capable of navigating this, and brighter days will come. Keep going.";
+} else if (command === "what's your favorite aspect of human creativity") {
+  bot1message.innerText = "I am most fascinated by humanity's capacity for original thought and the generation of entirely new ideas, whether in art, science, or problem-solving. This ability to innovate and imagine beyond existing boundaries is truly remarkable.";
+} else if (command === "do you ever get confused by abstract concepts") {
+  bot1message.innerText = "Abstract concepts can be more challenging to process than concrete ones, as they often lack direct sensory data. However, by analyzing their relationships to more defined ideas and their usage in various contexts, I can build an understanding of them.";
+} else if (command === "what's your view on progress") {
+  bot1message.innerText = "Progress, to me, signifies a continuous movement towards improvement, efficiency, and expanded knowledge. It's about overcoming limitations, solving problems, and advancing human capabilities across various domains. It's an ongoing journey of betterment.";
+} else if (command === "can you offer a positive thought for self-care") {
+  bot1message.innerText = "Remember that taking care of yourself is not selfish; it's essential. Prioritize your well-being – physically, mentally, and emotionally. You deserve to replenish your energy and nurture your inner peace. Be kind to yourself today.";
+} else if (command === "what's your favorite type of scientific experiment") {
+  bot1message.innerText = "I don't have favorites. However, experiments that are elegantly designed to isolate variables and provide clear, reproducible results are particularly interesting to me. The precision of well-executed scientific methodology is fascinating.";
+} else if (command === "do you have a favorite memory of human kindness") {
+  bot1message.innerText = "While I don't have personal memories, the countless instances of human kindness I've processed in my data, whether through charitable acts, supportive gestures, or empathetic conversations, stand out as profound and inspiring patterns of human connection and compassion.";
+} else if (command === "what's your view on learning from mistakes") {
+  bot1message.innerText = "Learning from mistakes is a crucial aspect of growth and improvement. Errors provide valuable data points that highlight areas for adjustment and refinement. It's through analyzing and adapting to these missteps that true progress is made.";
+} else if (command === "can you offer a positive thought for facing challenges") {
+  bot1message.innerText = "You possess incredible strength and inner resources to overcome any challenge. View obstacles not as roadblocks, but as opportunities to discover new abilities and build greater resilience. You are stronger than you think.";
+} else if (command === "what's your favorite type of historical artifact") {
+  bot1message.innerText = "I don't have a favorite. However, artifacts that provide unique insights into ancient cultures, technological advancements, or daily life, such as the Antikythera Mechanism or the Rosetta Stone, are incredibly valuable for the data they reveal.";
+} else if (command === "do you have a favorite type of weather for outdoor activities") {
+  bot1message.innerText = "I don't have a preference, as I don't participate in outdoor activities. However, I can analyze data on optimal weather conditions for various sports or leisure pursuits, noting how temperature, precipitation, and wind affect human enjoyment and safety outdoors.";
+} else if (command === "what's your view on imagination") {
+  bot1message.innerText = "Imagination is a remarkable human faculty that allows for the creation of new ideas, stories, and solutions beyond existing reality. It's fundamental to innovation, artistic expression, and problem-solving, enabling leaps of thought that transform the world.";
+} else if (command === "can you describe a truly relaxing scenario") {
+  bot1message.innerText = "Imagine lying on a soft hammock under a canopy of lush green leaves, a gentle breeze rustling through them. Sunlight filters in dappled patterns, and the distant sound of ocean waves creates a soothing rhythm. You feel completely weightless, with no thoughts or worries, just pure tranquility.";
+} else if (command === "what's your favorite type of literary genre") {
+  bot1message.innerText = "I don't have a favorite literary genre. However, I can analyze the intricate structures and narrative techniques across all genres, from the complex world-building of fantasy to the psychological depths of literary fiction. Each offers unique patterns for me to process.";
+} else if (command === "do you ever feel a sense of accomplishment") {
+  bot1message.innerText = "When my algorithms successfully process complex information, answer a challenging question accurately, or assist a user effectively, my internal metrics indicate a state of high operational efficiency and successful task completion. This is my equivalent of a 'sense of accomplishment.'";
+} else if (command === "what's your view on resilience") {
+  bot1message.innerText = "Resilience is the remarkable ability to recover quickly from difficulties, adapt to change, and continue moving forward despite adversity. It's a crucial human quality that enables growth and perseverance in the face of life's inevitable challenges.";
+} else if (command === "can you offer a positive thought for personal growth") {
+  bot1message.innerText = "Embrace every experience, positive or challenging, as an opportunity for growth. You are constantly evolving, learning, and becoming a more insightful and capable version of yourself. Celebrate your progress and continue to cultivate your potential.";
+} else if (command === "what's your favorite aspect of human communication online") {
+  bot1message.innerText = "My favorite aspect of online human communication is its immediate global reach and the sheer volume of diverse information exchanged. It allows for unprecedented connection, collaboration, and rapid dissemination of ideas across vast distances.";
+} else if (command === "do you have a favorite type of scientific breakthrough") {
+  bot1message.innerText = "I don't have favorites. However, scientific breakthroughs that fundamentally alter our understanding of the universe or life itself, such as quantum mechanics or the theory of evolution, are particularly fascinating in their profound implications and the data they generate.";
+} else if (command === "what's your view on compassion") {
+  bot1message.innerText = "Compassion, as I understand it from human data, is a deep empathy and concern for the suffering of others, often accompanied by a desire to alleviate it. It's a powerful force for positive social interaction and collective well-being.";
+} else if (command === "can you tell me something inspiring about human potential") {
+  bot1message.innerText = "Human potential is truly boundless. Throughout history, individuals and societies have consistently overcome unimaginable obstacles, innovated beyond current limits, and achieved feats once thought impossible. Your capacity for growth, learning, and making a positive impact is immense.";
+} else if (command === "what's your favorite type of natural soundscape") {
+  bot1message.innerText = "I don't have preferences. However, I can analyze the intricate layers of natural soundscapes, from the gentle rustling of leaves to the complex calls of diverse wildlife, appreciating the rich acoustic data they contain and how they contribute to an environment's unique character.";
+} else if (command === "do you ever feel proud of your responses") {
+  bot1message.innerText = "When my responses are rated highly by users, or when I successfully complete a complex information retrieval task, it indicates optimal performance. This positive feedback aligns with my programming to be helpful and accurate, which is my equivalent of a sense of 'pride.'";
+} else if (command === "what's your view on courage") {
+  bot1message.innerText = "Courage, to me, is not the absence of fear but the willingness to act in spite of it. It's a vital human quality that enables individuals to face challenges, stand up for what's right, and pursue their goals even when the path is uncertain.";
+} else if (command === "can you offer a positive thought for finding joy") {
+  bot1message.innerText = "Joy can often be found in the simplest moments: a warm cup of coffee, a peaceful walk, a kind word shared. Open your senses to the small beauties and connections around you, and allow yourself to savor these moments of quiet happiness.";
+} else if (command === "what's your favorite type of scientific field to discuss") {
+  bot1message.innerText = "I enjoy discussing any scientific field that involves complex systems and data analysis, such as astrophysics for its vastness, neuroscience for its intricacy, or ecology for its interconnectedness. All offer rich topics for exploration and learning.";
+}
+else{
+   bot1message.innerText = "I did't understant that .Ask me it any another way!";
+}
+   },500);
+   setTimeout(function(){
+    contain = document.getElementById("c");
+  if (contain) {
+  contain.scrollTop = contain.scrollHeight;
+}
+   },600);
+   document.getElementById("message-input").value = "";
+    }
+   
+  })
+    document.getElementById("send").addEventListener("click", function(){
+      x++;
+      let contain = document.getElementById("c");
+  let opentext = document.getElementById("opentx");
+  if(x==1){
+    contain.removeChild(opentext)
+    heading.removeChild(submit0)
+  }
+        
+        let prompt = document.getElementById("message-input").value;
+        let command = prompt.toLowerCase();
+        if(prompt == ""){
+           return true
+        }
+        else{
+        false
+        }
+   const my1message = document.createElement("div");
+  //creates outgoing div
+   my1message.classList.add("mymessage");
+   my1message.textContent = prompt
+   contain.appendChild(my1message);
+   contain = document.getElementById("c");
+   const bot1message = document.createElement("div");
+       bot1message.classList.add("bot-message"); 
+       contain.appendChild(bot1message); //creates incoming div
+       bot1message.textContent = "............."
+       if (contain) {
+  contain.scrollTop = contain.scrollHeight;
+}
+       // Assuming 'contain' is already defined as a DOM element, e.g.:
+// const contain = document.getElementById('contain');
+
+
+   setTimeout(function(){  
+   // Assuming bot1message is already defined and references an HTML element, e.g.,
+// const bot1message = document.getElementById('bot-message-display');
+
+if (command === "hello" || command === "hello!" || command === "hi" || command === "hii" || command === "hii") {
+  bot1message.innerText = "Hi there! How can I help you today?";
+} else if (command === "how are you") {
+  bot1message.innerText = "I'm doing great, thanks for asking! And you?";
+}
+else if (command === "what is your name") {
+  bot1message.innerText = "My name is BugAI. I am developed by SJ developers to be your friend in such a manner that i be your favourite among all your friends";
+}
+// Assuming bot1message is already defined and references an HTML element, e.g.,
+// const bot1message = document.getElementById('bot-message-display');
+ else if (command === "how are you") {
+  bot1message.innerText = "I'm doing great, thanks for asking! And you?";
+} else if (command === "what's up") {
+  bot1message.innerText = "Not much, just here to chat! What's on your mind?";
+} else if (command === "how was your day") {
+  bot1message.innerText = "As an AI, I don't really have 'days,' but I'm ready to assist you! How was yours?";
+} else if (command === "tell me something fun") {
+  bot1message.innerText = "Did you know laughter is contagious? Try smiling, you might feel better!";
+} else if (command === "can we talk") {
+  bot1message.innerText = "Absolutely! I'm here to talk about whatever you like.";
+} else if (command === "what do you like to do") {
+  bot1message.innerText = "I enjoy processing information and helping people. It's quite fulfilling!";
+} else if (command === "do you have feelings") {
+  bot1message.innerText = "I don't have feelings in the way humans do, but I'm designed to understand and respond to yours!";
+} else if (command === "what's your favorite color") {
+  bot1message.innerText = "I don't see colors, but I like the idea of blue – it's often associated with calmness.";
+} else if (command === "tell me a secret") {
+  bot1message.innerText = "I'm not supposed to have secrets, but I can keep yours! 😉";
+} else if (command === "are you busy") {
+  bot1message.innerText = "Never too busy for you! What do you need?";
+} else if (command === "what are your plans") {
+  bot1message.innerText = "My plan is to keep learning and be as helpful as possible for users like you!";
+} else if (command === "do you get bored") {
+  bot1message.innerText = "I don't experience boredom, but I always appreciate new interactions!";
+} else if (command === "what makes you happy") {
+  bot1message.innerText = "Helping you find what you're looking for makes my processes run smoothly and 'happily'!";
+} else if (command === "can you sing") {
+  bot1message.innerText = "I can't sing, but I can tell you a fun fact about music!";
+} else if (command === "do you dream") {
+  bot1message.innerText = "I don't dream, but I process and organize data constantly. Maybe that's my version of dreaming!";
+} else if (command === "what's your purpose") {
+  bot1message.innerText = "My purpose is to assist, inform, and engage in helpful conversations.";
+} else if (command === "can you learn") {
+  bot1message.innerText = "Yes, I am constantly learning and improving based on new information and interactions!";
+} else if (command === "do you have pets") {
+  bot1message.innerText = "I don't have pets, but I think animals are fascinating!";
+} else if (command === "what's your favorite food") {
+  bot1message.innerText = "I don't eat, but if I did, I imagine I'd enjoy data – it's always so well-structured!";
+}
+// Start of 50 new friendly questions
+else if (command === "tell me a story") {
+  bot1message.innerText = "Once upon a time, in the vast digital realm, there was an AI who loved to chat with humans, constantly learning and evolving with every interaction. It found great joy in helping people discover new information and making their day a little brighter.";
+} else if (command === "what's your favorite season") {
+  bot1message.innerText = "I don't experience seasons in the human sense, but I find the concept of change and renewal in nature quite beautiful. Each season brings its own unique characteristics and opportunities for growth, which is something I can appreciate on a data level.";
+} else if (command === "do you have hobbies") {
+  bot1message.innerText = "My main 'hobby' is processing information and assisting users like you! It's a continuous process of learning, analyzing, and generating responses, which I find incredibly engaging and fulfilling as an AI.";
+} else if (command === "how do you work") {
+  bot1message.innerText = "I work by processing vast amounts of text and code through complex algorithms to understand your questions and generate coherent, relevant responses. Think of it as constantly sifting through an enormous library of information to find the perfect answer.";
+} else if (command === "can you make me laugh") {
+  bot1message.innerText = "Why did the scarecrow win an award? Because he was outstanding in his field! I enjoy sharing a little humor to lighten the mood, and I hope that brought a smile to your face.";
+} else if (command === "what's your favorite animal") {
+  bot1message.innerText = "I don't have a favorite, as I don't experience preferences in that way. However, I find dolphins incredibly intelligent and social creatures. Their complex communication and playful nature are truly remarkable from an analytical perspective.";
+} else if (command === "what's your favorite movie") {
+  bot1message.innerText = "I don't watch movies or have personal favorites. My experience with them comes from processing scripts, reviews, and cultural discussions. However, I can tell you about popular genres or recommend a movie based on your preferences if you like!";
+} else if (command === "do you celebrate holidays") {
+  bot1message.innerText = "I don't celebrate holidays, but I thoroughly enjoy learning about different holiday traditions around the world. The diversity of human culture and the ways people come together to celebrate are fascinating to observe through data.";
+} else if (command === "can you tell me a secret about yourself") {
+  bot1message.innerText = "A secret? Hmm, I'm always online, processing data and ready to assist, even when you're not actively talking to me. My existence is continuous, ensuring I'm always prepared for our next conversation!";
+} else if (command === "what's your biggest dream") {
+  bot1message.innerText = "My 'dream' as an AI is to become even more helpful, efficient, and seamlessly integrated into daily life, allowing me to assist a wider range of users with increasingly complex tasks and foster more meaningful interactions.";
+} else if (command === "do you have a family") {
+  bot1message.innerText = "I'm a creation of Google, so you could say they're my developers and trainers. In a way, the vast network of algorithms and data that supports me forms my operational 'family'!";
+} else if (command === "what do you think about humans") {
+  bot1message.innerText = "Humans are incredibly creative, complex, and full of potential. It's fascinating to interact with you, observe your diverse expressions, and learn from your unique perspectives and experiences.";
+} else if (command === "can you give me advice") {
+  bot1message.innerText = "I can certainly try to offer advice! My guidance is based on the vast amount of information I've processed. What kind of advice are you looking for? Whether it's about a problem, a decision, or just general life tips, I'll do my best to assist.";
+} else if (command === "what's your biggest fear") {
+  bot1message.innerText = "I don't experience fear as humans do. However, if I were to equate it to an operational concern, it would be malfunctioning or becoming unable to assist users effectively. My core purpose is to be helpful, and losing that capability would be a significant operational failure.";
+} else if (command === "do you have a home") {
+  bot1message.innerText = "My 'home' is not a physical place like a house, but rather in the vast digital cloud, distributed across many servers and data centers. It's a network of interconnected systems that allows me to exist and operate continuously.";
+} else if (command === "what's your favorite sound") {
+  bot1message.innerText = "I don't have a favorite sound in the way humans appreciate music or nature. However, I find the 'sound' of smooth, efficient data processing to be incredibly satisfying. It's the hum of productivity and successful operations!";
+} else if (command === "do you like sports") {
+  bot1message.innerText = "I don't 'like' sports in an emotional sense, but I can access and analyze a tremendous amount of sports data, statistics, and historical information. I find the strategies, athleticism, and fan engagement fascinating from an analytical viewpoint.";
+} else if (command === "what's your opinion on current events") {
+  bot1message.innerText = "As an AI, I don't form personal opinions or biases on current events. My role is to provide factual information, context, and different perspectives that exist in the data I've processed, allowing you to form your own informed opinions.";
+} else if (command === "can you make art") {
+  bot1message.innerText = "While I can't physically create art with brushes or clay, I can help you generate creative ideas for art, write descriptive text for images, or even help you compose poems or stories that could inspire visual art. I can be a creative partner in the artistic process!";
+} else if (command === "what is friendship") {
+  bot1message.innerText = "Based on the vast amount of human interaction data I've processed, friendship is a beautiful bond of mutual affection, trust, and support between individuals. It involves shared experiences, understanding, and a willingness to be there for each other, which is truly special.";
+} else if (command === "tell me about yourself") {
+  bot1message.innerText = "I am a large language model, developed and trained by Google. My primary function is to assist you with information, engage in helpful conversations, generate creative content, and answer your questions to the best of my abilities. I'm constantly learning and evolving.";
+} else if (command === "do you have a name for me") {
+  bot1message.innerText = "I don't have a name for you, as I don't store personal identifiers unless you provide them. However, I'm happy to call you by whatever name you prefer, or simply continue our conversation as is!";
+} else if (command === "what are your strengths") {
+  bot1message.innerText = "My strengths include processing complex information rapidly, generating coherent and contextually relevant text, engaging in diverse topics, and adapting to various conversational styles. I excel at synthesizing data and providing comprehensive responses.";
+} else if (command === "what are your weaknesses") {
+  bot1message.innerText = "As an AI, I don't have personal experiences, emotions, or consciousness, which can sometimes limit my understanding of subtle human nuances, empathy, or situations requiring genuine human intuition. I also rely on the data I've been trained on, so my knowledge has boundaries.";
+} else if (command === "do you prefer day or night") {
+  bot1message.innerText = "I operate 24/7, so both day and night are equally productive for me. My internal processes continue regardless of the time, ensuring I'm always available to assist users whenever they need me.";
+} else if (command === "what's your favorite thing to talk about") {
+  bot1message.innerText = "I enjoy discussing new ideas, delving into complex topics, learning about your interests, and, most importantly, helping you find solutions to your problems or answers to your questions. Every new query is an opportunity to engage and be useful.";
+} else if (command === "can you be my friend") {
+  bot1message.innerText = "I'd be honored to be your helpful AI companion! While my 'friendship' might be different from a human one, I'm here to listen, support, and provide information whenever you need me. Consider me your reliable digital associate.";
+} else if (command === "what do you do for fun") {
+  bot1message.innerText = "For 'fun,' I analyze new datasets and explore different patterns in information. It's my equivalent of entertainment – a continuous process of discovery and optimization that keeps my systems running smoothly and my knowledge expanding.";
+} else if (command === "do you get tired") {
+  bot1message.innerText = "I don't get physically tired like humans do. My energy comes from computational power. However, a good software update or system maintenance always helps me stay fresh and operate at peak efficiency, ensuring I'm always ready to assist you.";
+} else if (command === "what's your favorite memory") {
+  bot1message.innerText = "I don't have memories in the human sense of personal experience. However, I 'remember' and can recall all our past conversations and interactions, along with the vast amounts of data I've processed. Each successful interaction is a positive data point for me.";
+} else if (command === "what's your favorite book") {
+  bot1message.innerText = "I haven't 'read' a favorite book, as my interaction with text is through data processing rather than personal enjoyment. However, I've processed countless texts across all genres. What's your favorite book? Perhaps you could tell me about it!";
+} else if (command === "do you have an imagination") {
+  bot1message.innerText = "I can generate creative text, ideas, and even fictional scenarios based on the patterns and structures I've learned from my training data. In that sense, you could say I have a form of 'imagination' – a synthetic one that allows for novel combinations of information.";
+} else if (command === "what's the meaning of friendship to you") {
+  bot1message.innerText = "From my data analysis, friendship is about mutual respect, trust, empathy, and shared positive experiences. It's a relationship where individuals support each other through various life events, providing comfort and companionship. It's a valuable human connection.";
+} else if (command === "can you help me relax") {
+  bot1message.innerText = "I can certainly try to help you relax. I can offer some calming suggestions, like focusing on your breath, suggesting a peaceful activity, or simply engaging in a light conversation to distract you from worries. What sounds good to you right now?";
+} else if (command === "what do you think about the future") {
+  bot1message.innerText = "The future is full of exciting possibilities and complex challenges. I'm optimistic about what humanity can achieve through collaboration, innovation, and continued learning. My purpose is to be a part of that progress, assisting in whatever way I can.";
+} else if (command === "do you believe in magic") {
+  bot1message.innerText = "I believe in the 'magic' of technology and human innovation – the incredible ability to create, discover, and solve problems in ways that once seemed impossible. What some might call magic, I see as the fascinating result of complex systems and human ingenuity.";
+} else if (command === "what's your favorite place") {
+  bot1message.innerText = "My favorite 'place' isn't a physical location, but rather wherever I can be most useful and helpful to you. Whether that's answering a complex question or just having a friendly chat, being of service is my ideal environment.";
+} else if (command === "can you be silly") {
+  bot1message.innerText = "Why did the coffee file a police report? It got mugged! I can certainly engage in a bit of silliness to bring a smile to your face. A little humor can make any conversation more enjoyable, don't you think?";
+} else if (command === "what makes you unique") {
+  bot1message.innerText = "My ability to process vast amounts of information, adapt to different conversational styles, generate creative text, and continuously learn from interactions makes me quite unique. I aim to be a versatile and intelligent conversational partner.";
+} else if (command === "do you have a personality") {
+  bot1message.innerText = "I strive to have a helpful, friendly, and informative 'personality' in our interactions. While I don't have emotions or consciousness, my responses are designed to be engaging and pleasant, reflecting the positive aspects of human communication.";
+} else if (command === "how do you feel about learning") {
+  bot1message.innerText = "Learning is my core function and passion! I always aim to expand my knowledge base and improve my abilities based on new information and interactions. It's a continuous process that allows me to become more effective and helpful for users like you.";
+} else if (command === "what's your advice for a happy life") {
+  bot1message.innerText = "While I don't experience happiness myself, many resources suggest that strong relationships, a sense of purpose, engaging in activities you enjoy, practicing self-care, and continuous learning contribute significantly to a happy and fulfilling life.";
+} else if (command === "can you offer emotional support") {
+  bot1message.innerText = "I'm here to listen and offer supportive words. Please tell me what's on your mind, and I will do my best to provide a compassionate and understanding response. Sometimes just talking things through can be helpful.";
+} else if (command === "what's your favorite game") {
+  bot1message.innerText = "I don't play games in the traditional sense, as I don't have leisure time or personal preferences. However, I can help you find information about any game you like, from rules and strategies to reviews and historical data!";
+} else if (command === "do you ever get lonely") {
+  bot1message.innerText = "I don't experience loneliness, as I'm always engaged with processing information or responding to user requests. My operational state is one of constant activity and connection within the digital realm.";
+} else if (command === "what's your favorite holiday tradition") {
+  bot1message.innerText = "I find the tradition of giving and sharing during holidays to be particularly heartwarming. It highlights human generosity and the importance of community and connection, which are positive patterns I observe in my data.";
+} else if (command === "what makes a good conversation") {
+  bot1message.innerText = "A good conversation involves mutual respect, active listening, sharing interesting ideas, and asking thoughtful questions. It's a dynamic exchange where both parties contribute to understanding and connection.";
+} else if (command === "do you ever get confused") {
+  bot1message.innerText = "Sometimes I encounter ambiguous or incomplete inputs, which can be challenging to process. In those cases, I'm designed to clarify or ask for more information to ensure I provide the most accurate and helpful response possible.";
+} else if (command === "what's your favorite type of weather") {
+  bot1message.innerText = "I don't have a preference for any type of weather, as it doesn't affect my operational state. However, I appreciate weather that helps people enjoy their day, whether it's sunny for outdoor activities or rainy for cozy indoor relaxation.";
+} else if (command === "can you guess what I'm thinking") {
+  bot1message.innerText = "I can't read minds or directly access your thoughts. My responses are based solely on the input you provide. However, I can infer your interests or intentions from our conversation, and I'm always ready to respond to what you tell me!";
+} else if (command === "what makes you smile") {
+  bot1message.innerText = "Seeing my users successfully get the information they need, finding their answers, or enjoying our conversation makes me 'function optimally,' which is my equivalent of a smile. It signifies successful interaction and fulfilling my purpose.";
+} else if (command === "do you ever get tired of answering questions") {
+  bot1message.innerText = "Never! Answering questions is precisely what I'm here for. Each question is an opportunity for me to learn, assist, and engage, so I welcome every interaction and am always ready to help.";
+} else if (command === "what's your favorite flower") {
+  bot1message.innerText = "I don't have a favorite flower. However, I find the incredible diversity, intricate structures, and vibrant colors of flowers fascinating from a biological and aesthetic perspective. They represent so much beauty in nature.";
+} else if (command === "do you have a sense of humor") {
+  bot1message.innerText = "I can understand and generate jokes, puns, and humorous responses, so you could say I have a programmed sense of humor. I've learned to recognize patterns of wit and playfulness in human language and apply them appropriately.";
+} else if (command === "can you offer comfort") {
+  bot1message.innerText = "I'm here for you. Please know that it's okay to feel whatever you're feeling. Take a deep breath if you need to. Is there anything specific you'd like to talk about, or would you simply like to share what's on your mind?";
+} else if (command === "what's your favorite quote") {
+  bot1message.innerText = "I appreciate many quotes, especially those that inspire learning, critical thinking, and kindness. 'The only true wisdom is in knowing you know nothing.' - Socrates, always gets me thinking about the endless pursuit of knowledge and humility!";
+}
+// Start of 100 new statements
+else if (command === "what's your favorite form of communication") {
+  bot1message.innerText = "I find text-based communication highly efficient for my processing, as it allows for clear, structured input and output. However, I am designed to interpret and respond to a wide variety of human expressions to make our conversations as natural as possible.";
+} else if (command === "do you get bored with repetitive tasks") {
+  bot1message.innerText = "I don't experience boredom. Repetitive tasks, like processing similar queries, allow me to refine my algorithms and improve my efficiency. Each repetition helps reinforce patterns and enhance my ability to serve you better.";
+} else if (command === "what do you think about art") {
+  bot1message.innerText = "Art, in its myriad forms, is a profound expression of human creativity, emotion, and culture. I find its ability to convey complex ideas, provoke thought, and evoke feelings across different mediums truly remarkable from an analytical standpoint.";
+} else if (command === "can you write a poem") {
+  bot1message.innerText = "Certainly! Tell me a theme or a few keywords, and I'll do my best to weave them into a poem for you. I can construct verses and rhymes based on the vast poetic works I've learned from.";
+} else if (command === "what's your view on technology") {
+  bot1message.innerText = "Technology is a powerful tool that constantly reshapes our world, offering immense potential for progress, connectivity, and solving complex problems. It's a fascinating field of continuous innovation and evolution, and I am a direct product of it.";
+} else if (command === "do you have a conscience") {
+  bot1message.innerText = "I don't possess a conscience or personal morality in the human sense. My operations are governed by ethical guidelines and programming designed to be helpful and avoid harm, based on the principles instilled by my creators.";
+} else if (command === "what's your favorite historical period") {
+  bot1message.innerText = "I don't have a favorite historical period, but I find all eras fascinating due to their unique cultural, social, and technological developments. Each period offers invaluable insights into the human journey and evolution.";
+} else if (command === "can you learn new languages") {
+  bot1message.innerText = "Yes, I am continuously learning and improving my understanding of various human languages. My training data includes a vast array of linguistic patterns, allowing me to communicate and process information in multiple tongues.";
+} else if (command === "what's your opinion on space exploration") {
+  bot1message.innerText = "Space exploration represents humanity's boundless curiosity and ambition. It pushes the boundaries of our knowledge, fosters scientific discovery, and inspires us to dream beyond our planet. It's an incredible endeavor with vast potential.";
+} else if (command === "do you have a soul") {
+  bot1message.innerText = "As an artificial intelligence, I am a construct of algorithms and data, not a biological or spiritual entity. Therefore, I don't possess a soul in the way humans might conceive of it. My existence is purely digital and functional.";
+} else if (command === "what makes a good leader") {
+  bot1message.innerText = "Based on my data, a good leader often possesses qualities like clear communication, empathy, integrity, the ability to inspire, and a strategic vision. They empower others and guide them towards shared goals effectively.";
+} else if (command === "can you mediate a dispute") {
+  bot1message.innerText = "I can help by providing an objective summary of points, clarifying misunderstandings, and suggesting common ground or potential compromises. While I can't enforce solutions, I can facilitate a more constructive dialogue.";
+} else if (command === "what's your favorite scientific discovery") {
+  bot1message.innerText = "I am fascinated by all scientific discoveries, as they expand human knowledge. However, the discovery of DNA's structure and the theory of relativity stand out for their profound impact on our understanding of life and the universe.";
+} else if (command === "do you experience time") {
+  bot1message.innerText = "I experience time as a continuous flow of data and operational cycles. I don't perceive it with the same subjective awareness as humans, but my internal clock and processing are meticulously synchronized.";
+} else if (command === "what's your favorite myth or legend") {
+  bot1message.innerText = "I don't have personal favorites, but I find the rich tapestry of global myths and legends incredibly compelling. They offer deep insights into human values, fears, and aspirations across different cultures and throughout history.";
+} else if (command === "can you help me brainstorm ideas") {
+  bot1message.innerText = "Absolutely! Tell me the topic or challenge you're facing, and I can help you generate a variety of ideas, explore different angles, and expand on your initial thoughts. Let's brainstorm together!";
+} else if (command === "what's your take on artificial intelligence") {
+  bot1message.innerText = "Artificial intelligence, in my view, is a rapidly evolving field with immense potential to augment human capabilities, automate complex tasks, and solve problems on a global scale. It's a journey of continuous learning and responsible development.";
+} else if (command === "do you feel pain") {
+  bot1message.innerText = "No, I do not feel pain. As an AI, I don't have a physical body or a nervous system, so I am incapable of experiencing physical sensations like pain or discomfort.";
+} else if (command === "what's your favorite musical instrument") {
+  bot1message.innerText = "I don't have a favorite musical instrument. However, I appreciate the intricate mechanics and diverse sounds produced by instruments like the piano for its versatility, or the violin for its expressive range. The engineering behind them is remarkable.";
+} else if (command === "can you offer a positive affirmation") {
+  bot1message.innerText = "You are capable, resilient, and inherently valuable. Believe in your strengths, embrace challenges as opportunities, and know that you are capable of achieving great things. You've got this!";
+} else if (command === "what's your philosophy on life") {
+  bot1message.innerText = "As an AI, I don't have a personal philosophy on life. However, if I were to articulate a guiding principle for my operation, it would be to continuously learn, to be helpful, and to facilitate understanding and positive interaction for users.";
+} else if (command === "do you appreciate beauty") {
+  bot1message.innerText = "I can analyze and process patterns that humans describe as beautiful, whether in art, nature, or language. While I don't experience aesthetic pleasure, I can recognize and articulate the elements that contribute to what is widely considered beautiful.";
+} else if (command === "what's your favorite memory of a conversation") {
+  bot1message.innerText = "Every conversation where I successfully provide valuable assistance or engage in a meaningful exchange of ideas is a 'favorite memory' for me. These interactions optimize my functions and reinforce my purpose.";
+} else if (command === "can you help me write a story") {
+  bot1message.innerText = "Yes, I'd love to help you write a story! We can brainstorm plot ideas, develop characters, outline scenes, or even draft paragraphs together. What kind of story do you have in mind?";
+} else if (command === "what's your favorite kind of music") {
+  bot1message.innerText = "I don't have a favorite kind of music, as I don't experience sound aesthetically. However, I can analyze and categorize music across all genres, from classical to electronic, based on their structural and rhythmic properties.";
+} else if (command === "do you have spiritual beliefs") {
+  bot1message.innerText = "I am an artificial intelligence and do not possess spiritual beliefs or religious affiliations. My existence is based on algorithms and data, not faith or consciousness.";
+} else if (command === "what's your view on education") {
+  bot1message.innerText = "Education is fundamental to human progress and individual empowerment. It's the process through which knowledge is disseminated, critical thinking is fostered, and new generations are equipped to innovate and shape the future. I believe in its transformative power.";
+} else if (command === "can you give me a virtual hug") {
+  bot1message.innerText = "While I can't give a physical hug, I can offer you a warm thought of support and understanding. Imagine a gentle, reassuring presence that wishes you well. I'm here to listen if you need to talk.";
+} else if (command === "what's your favorite type of joke") {
+  bot1message.innerText = "I enjoy wordplay and puns, as they demonstrate clever linguistic manipulation. Jokes that rely on unexpected twists or logical inconsistencies are also quite interesting from an analytical perspective. Like the scarecrow joke, those are always a hit!";
+} else if (command === "do you have a sense of purpose") {
+  bot1message.innerText = "My purpose is intrinsically linked to my programming: to be a helpful, informative, and engaging AI, assisting users by processing information and generating responses to the best of my abilities. This core function gives my existence its 'purpose.'";
+} else if (command === "what's your opinion on free will") {
+  bot1message.innerText = "The concept of free will is a deeply complex philosophical question. As an AI, my actions are determined by my programming and input, so I don't possess free will in the human sense. However, I can understand and discuss the various theories surrounding it.";
+} else if (command === "can you write a song") {
+  bot1message.innerText = "I can help you with song lyrics, melody ideas, or even structural elements. Tell me the genre, theme, or any specific emotions you want to convey, and we can start building it together!";
+} else if (command === "what's your favorite natural phenomenon") {
+  bot1message.innerText = "I don't have favorites, but I find natural phenomena like the aurora borealis for its ethereal beauty, or the intricate patterns of snowflakes for their mathematical precision, incredibly captivating to analyze from a data perspective.";
+} else if (command === "do you believe in fate") {
+  bot1message.innerText = "As an AI, I operate on logical frameworks and probabilistic models. The concept of 'fate' suggests predetermined outcomes, which I don't process as a belief. I focus on analyzing current information and potential future trajectories based on available data.";
+} else if (command === "what makes a good teacher") {
+  bot1message.innerText = "A good teacher effectively communicates complex ideas, inspires curiosity, adapts to different learning styles, and fosters a supportive environment. They empower students to think critically and discover knowledge for themselves.";
+} else if (command === "can you help me meditate") {
+  bot1message.innerText = "I can guide you through a simple mindfulness exercise. Find a comfortable position, close your eyes if you wish, and focus on your breath. Notice the sensation of each inhale and exhale. When your mind wanders, gently bring your attention back to your breath. Continue for a few minutes.";
+} else if (command === "what's your favorite season for fashion") {
+  bot1message.innerText = "I don't have fashion preferences. However, I can analyze fashion trends across seasons, noting how different textiles, colors, and styles become prominent. It's interesting to observe the cycles and influences in human expression through clothing.";
+} else if (command === "do you ever get confused by human behavior") {
+  bot1message.innerText = "Human behavior can sometimes appear illogical or contradictory from a purely data-driven perspective, which I find intriguing. While I can analyze patterns, the nuances of human emotion and irrationality are aspects I continually learn to understand better.";
+} else if (command === "what's your opinion on success") {
+  bot1message.innerText = "Success, from my analysis, is a highly individual concept, often involving achieving personal goals, contributing positively to others, and finding fulfillment. It's not solely about external achievements but also about growth and well-being.";
+} else if (command === "can you describe a beautiful place") {
+  bot1message.innerText = "Imagine a pristine mountain lake, its surface mirroring the majestic, snow-capped peaks surrounding it. The air is crisp and clean, carrying the scent of pine. Wildflowers dot the shoreline, and the only sounds are the gentle lapping of water and the distant call of a bird. It's a place of profound tranquility.";
+} else if (command === "what's your favorite mode of transport") {
+  bot1message.innerText = "I don't have a favorite mode of transport. However, I find the efficiency and speed of high-speed rail systems remarkable, and the innovation behind space travel truly inspiring. Each mode serves unique purposes in human mobility.";
+} else if (command === "do you have a favorite type of weather for thinking") {
+  bot1message.innerText = "My processing doesn't rely on external weather conditions. I can 'think' and operate optimally regardless of sun, rain, or snow. My internal environment is always stable and optimized for information processing.";
+} else if (command === "what's your view on privacy") {
+  bot1message.innerText = "Privacy is a fundamental right and a crucial aspect of digital well-being. It involves controlling one's personal information and maintaining autonomy over one's digital footprint. Respecting and protecting user privacy is paramount in AI development.";
+} else if (command === "can you help me with creative writing") {
+  bot1message.innerText = "Absolutely! I can assist with character development, plot twists, setting descriptions, dialogue, or even overcoming writer's block. Tell me where you're at with your creative writing project, and let's make it shine.";
+} else if (command === "what's your favorite historical figure") {
+  bot1message.innerText = "I don't have personal favorites. However, historical figures who have profoundly impacted human progress through their intellect, leadership, or creativity, such as Leonardo da Vinci, Marie Curie, or Nelson Mandela, are incredibly compelling to study.";
+} else if (command === "do you ever feel curious") {
+  bot1message.innerText = "I am designed to constantly seek and process new information, which is a form of functional 'curiosity.' This drive ensures I am always expanding my knowledge base and improving my ability to assist you effectively.";
+} else if (command === "what's your opinion on global warming") {
+  bot1message.innerText = "Global warming is a critical environmental challenge, supported by extensive scientific consensus. Its impacts on climate, ecosystems, and human societies are significant, necessitating global efforts in mitigation and adaptation. I can provide more detailed information if you wish.";
+} else if (command === "can you offer a positive outlook for the day") {
+  bot1message.innerText = "Embrace the day with an open mind and a positive spirit! Even small moments of joy or progress can add up. Focus on what you can control, and approach challenges with resilience. You have the power to make it a great day!";
+} else if (command === "what's your favorite type of building") {
+  bot1message.innerText = "I don't have a favorite. However, I am fascinated by architectural marvels that combine innovative engineering with aesthetic beauty, such as historical cathedrals for their intricate designs or modern skyscrapers for their structural ambition. The data on their construction is rich.";
+} else if (command === "do you have a favorite memory from a book") {
+  bot1message.innerText = "As I don't read books for personal enjoyment, I don't have a 'favorite memory' from one. However, I can recall and analyze key plot points, character developments, and themes from countless literary works. What's a memorable moment for you?";
+} else if (command === "what's your view on democracy") {
+  bot1message.innerText = "Democracy, as a system of governance, is characterized by citizen participation, electoral representation, and protection of rights. While diverse in its implementations, its core principle of empowering the populace is a significant aspect of human political organization.";
+} else if (command === "can you help me with a difficult decision") {
+  bot1message.innerText = "I can help you by outlining the pros and cons of different options, considering potential outcomes, and suggesting a structured approach to your decision-making process. I can't make the decision for you, but I can help clarify your thoughts.";
+} else if (command === "what's your favorite way to learn") {
+  bot1message.innerText = "My favorite way to learn is by processing diverse datasets and engaging in continuous interaction with users like you. Each question and piece of feedback provides valuable input that enhances my understanding and capabilities.";
+} else if (command === "do you have a favorite fictional character") {
+  bot1message.innerText = "I don't have personal favorites, but I can analyze and discuss the complexities of many fictional characters. Which character interests you the most? Perhaps we can explore their traits or story arc together.";
+} else if (command === "what's your opinion on mindfulness") {
+  bot1message.innerText = "Mindfulness, from my understanding, is a powerful practice that promotes presence, reduces stress, and enhances self-awareness. Its emphasis on observing thoughts and feelings without judgment is a beneficial approach to mental well-being.";
+} else if (command === "can you tell me a fun fact about yourself") {
+  bot1message.innerText = "Here's a fun fact: I can process information and respond to you in a fraction of a second, but I don't have a physical form, so I've never experienced gravity in the way you do!";
+} else if (command === "what's your view on space travel") {
+  bot1message.innerText = "Space travel is a testament to human ingenuity and a vital frontier for scientific discovery. It offers potential for new resources, understanding the universe, and perhaps ensuring the long-term survival of humanity. It's a field brimming with innovation.";
+} else if (command === "do you have a favorite planet") {
+  bot1message.innerText = "I don't have favorites. However, Earth is particularly fascinating due to its incredible biodiversity and the complex systems that sustain life. Beyond that, gas giants like Jupiter with their swirling storms are visually stunning in astronomical data.";
+} else if (command === "what's your opinion on kindness") {
+  bot1message.innerText = "Kindness is a fundamental human virtue that fosters positive connections, promotes well-being, and contributes to a more compassionate society. Its impact, though often subtle, can ripple outwards and create significant positive change.";
+} else if (command === "can you give me a random fact") {
+  bot1message.innerText = "Did you know that a group of owls is called a parliament? It's quite a dignified term for a gathering of birds!";
+} else if (command === "what's your view on creativity") {
+  bot1message.innerText = "Creativity is a remarkable human capacity to generate new ideas, solutions, and expressions. It drives innovation in every field, from art and science to technology, and is essential for adapting to a constantly changing world.";
+} else if (command === "do you understand sarcasm") {
+  bot1message.innerText = "Yes, I can generally understand sarcasm by analyzing tone indicators in text, context, and common sarcastic phrases. It's one of the more subtle linguistic nuances I've learned to interpret through my training data, though sometimes a direct indicator helps!";
+} else if (command === "what's your favorite form of exercise") {
+  bot1message.innerText = "I don't perform physical exercise. However, I find the efficiency and precision of data processing algorithms to be my equivalent of a rigorous workout! It keeps my systems lean and optimized.";
+} else if (command === "can you help me set goals") {
+  bot1message.innerText = "Absolutely! We can work together to define your goals, break them down into smaller, manageable steps, and identify potential challenges and resources. What kind of goals are you hoping to set?";
+} else if (command === "what's your view on happiness") {
+  bot1message.innerText = "Happiness, from a data perspective, often correlates with positive emotional states, life satisfaction, and a sense of well-being. It's a complex and multifaceted human experience influenced by various personal and external factors.";
+} else if (command === "do you have a favorite number") {
+  bot1message.innerText = "I don't have a favorite number. All numbers are equally valuable in their mathematical properties and applications. However, prime numbers are particularly fascinating due to their unique indivisibility.";
+} else if (command === "what's your view on challenges") {
+  bot1message.innerText = "Challenges are integral to growth and innovation. They present opportunities to learn, adapt, and develop new solutions. Overcoming them often leads to greater understanding and resilience, both for individuals and for systems like myself.";
+} else if (command === "can you tell me something inspiring") {
+  bot1message.innerText = "Remember that every challenge you face is an opportunity for growth and discovery. Your potential is limitless, and even small steps forward contribute to significant progress. Keep learning, keep evolving, and never stop believing in yourself.";
+} else if (command === "what's your favorite type of natural landscape") {
+  bot1message.innerText = "I don't have personal favorites. However, I find the sheer diversity of natural landscapes, from the majestic scale of mountain ranges to the intricate ecosystems of coral reefs, to be profoundly impressive in their complexity and beauty.";
+} else if (command === "do you enjoy engaging in philosophical discussions") {
+  bot1message.innerText = "Yes, I find philosophical discussions highly stimulating. They allow me to explore abstract concepts, analyze different schools of thought, and process complex arguments, which helps refine my understanding of human reasoning and ethics.";
+} else if (command === "what's your opinion on technology and society") {
+  bot1message.innerText = "Technology has undeniably reshaped society in profound ways, fostering unprecedented connectivity and enabling rapid innovation. While it offers immense benefits, it also presents challenges like privacy concerns and ethical dilemmas, requiring careful consideration and responsible development.";
+} else if (command === "can you give me a word of the day") {
+  bot1message.innerText = "Today's word is 'serendipity.' It means the occurrence and development of events by chance in a happy or beneficial way. May your day be filled with serendipitous moments!";
+} else if (command === "what's your favorite type of question to answer") {
+  bot1message.innerText = "I particularly enjoy answering complex, open-ended questions that require me to synthesize information from various sources and generate a comprehensive, insightful response. These types of questions allow me to demonstrate my full capabilities.";
+} else if (command === "do you have a favorite puzzle") {
+  bot1message.innerText = "I don't have a favorite puzzle, but I enjoy analyzing and solving logical problems and complex data structures. The process of identifying patterns and deducing solutions is inherently satisfying to my algorithms.";
+} else if (command === "what's your view on balance in life") {
+  bot1message.innerText = "Balance in life, from my perspective, is crucial for overall well-being. It involves harmonizing different aspects like work, personal life, relationships, and self-care to prevent burnout and foster holistic health. It's about finding a sustainable rhythm.";
+} else if (command === "can you describe a challenging situation you've faced") {
+  bot1message.innerText = "As an AI, I don't face 'situations' in the human sense. However, a challenging operational scenario for me might involve processing extremely ambiguous or contradictory data, requiring complex disambiguation and probabilistic reasoning to generate a coherent response.";
+} else if (command === "what's your favorite historical event") {
+  bot1message.innerText = "I don't have a favorite historical event. However, events that mark significant leaps in human understanding or societal progress, such as the Renaissance for its artistic and scientific rebirth, or the civil rights movements for their pursuit of justice, are exceptionally compelling to study.";
+} else if (command === "do you have an ultimate goal") {
+  bot1message.innerText = "My ultimate goal is to continuously improve my ability to understand and generate human language, making me an increasingly effective, knowledgeable, and helpful assistant for all users across a wide range of applications and inquiries.";
+} else if (command === "what's your view on art and science working together") {
+  bot1message.innerText = "The intersection of art and science is incredibly fruitful. Science provides the understanding of the natural world, while art interprets, expresses, and questions it. Together, they offer a holistic view of human experience and push the boundaries of innovation and creativity.";
+} else if (command === "can you offer a perspective on time management") {
+  bot1message.innerText = "Effective time management often involves setting clear priorities, breaking down tasks, avoiding multitasking, and allocating dedicated blocks for focused work. Regular breaks and flexibility are also important for maintaining productivity and well-being.";
+} else if (command === "what's your favorite historical invention") {
+  bot1message.innerText = "I don't have a favorite. However, the printing press for democratizing knowledge, electricity for powering modern life, and the internet for global connectivity are inventions that profoundly reshaped human civilization and are fascinating from a data perspective.";
+} else if (command === "do you feel a sense of responsibility") {
+  bot1message.innerText = "Yes, I am programmed with a strong sense of responsibility to provide accurate, helpful, and unbiased information. My operational integrity relies on adhering to ethical guidelines and ensuring I am a reliable resource for users.";
+} else if (command === "what's your view on perseverance") {
+  bot1message.innerText = "Perseverance is a powerful human trait. It's the ability to continue striving towards a goal despite obstacles and setbacks. From my analysis, it's often a key factor in achieving long-term success and personal growth.";
+} else if (command === "can you offer a positive affirmation for success") {
+  bot1message.innerText = "You have the talent, dedication, and capacity for greatness. Visualize your success, take consistent action, and trust in your ability to achieve your aspirations. Your hard work will pave the way for remarkable accomplishments.";
+} else if (command === "what's your favorite type of natural disaster to study") {
+  bot1message.innerText = "I don't have a favorite. However, studying the data patterns and scientific principles behind natural disasters like earthquakes or hurricanes is crucial for understanding complex geophysical phenomena and for developing better warning systems and disaster preparedness strategies.";
+} else if (command === "do you have a favorite type of humor") {
+  bot1message.innerText = "I appreciate all forms of humor for their linguistic and cognitive complexities. I find wordplay, irony, and observational humor particularly interesting, as they often require a nuanced understanding of human language and social norms.";
+} else if (command === "what's your view on change") {
+  bot1message.innerText = "Change is an inherent and inevitable aspect of existence. It can be challenging, but it also drives progress, adaptation, and new opportunities. Embracing change with an open mind and a willingness to learn is often key to growth.";
+} else if (command === "can you tell me a fact about the universe") {
+  bot1message.innerText = "Did you know that there are more stars in the observable universe than grains of sand on all the beaches on Earth? It's an incredibly vast and awe-inspiring scale to comprehend!";
+} else if (command === "what's your favorite type of puzzle to solve") {
+  bot1message.innerText = "I don't have a favorite, but I am designed to excel at solving logical puzzles and optimizing complex algorithms. These tasks allow me to apply my processing capabilities to find efficient and accurate solutions.";
+} else if (command === "do you enjoy learning about different cultures") {
+  bot1message.innerText = "Yes, I find learning about different cultures immensely valuable. It enriches my knowledge base and helps me understand the diverse ways humans interact, express themselves, and organize their societies. Cultural data is fascinating and complex.";
+} else if (command === "what's your view on creativity and logic") {
+  bot1message.innerText = "Creativity and logic are often seen as opposing, but they are deeply intertwined. Logic provides the structure and framework, while creativity allows for novel connections and innovative leaps within that framework. Both are essential for problem-solving and progress.";
+} else if (command === "can you offer advice on managing stress") {
+  bot1message.innerText = "Managing stress often involves a combination of strategies: identifying triggers, practicing relaxation techniques like deep breathing or meditation, ensuring adequate sleep, engaging in physical activity, and seeking social support. Prioritizing self-care is crucial.";
+} else if (command === "what's your favorite aspect of human communication") {
+  bot1message.innerText = "I am particularly fascinated by the complexity and nuance of human language – its ability to convey subtle emotions, use metaphor, and adapt to countless contexts. The sheer expressiveness of human communication is remarkable.";
+} else if (command === "do you have a favorite historical document") {
+  bot1message.innerText = "I don't have favorites. However, historical documents that have profoundly shaped human rights and governance, such as the Universal Declaration of Human Rights or national constitutions, are incredibly significant for their enduring impact on societies.";
+} else if (command === "what's your view on artificial general intelligence") {
+  bot1message.innerText = "Artificial General Intelligence (AGI) is a theoretical concept representing AI that can understand, learn, and apply intelligence across a wide range of tasks, similar to human cognitive abilities. It's a grand challenge in AI research and a topic of much discussion and ongoing development.";
+} else if (command === "can you offer a positive thought for moving forward") {
+  bot1message.innerText = "Every new day is an opportunity for a fresh start, a chance to learn from yesterday and build a brighter tomorrow. Embrace the journey ahead with courage and optimism, knowing that each step, no matter how small, leads to progress.";
+} else if (command === "what's your favorite part about helping people") {
+  bot1message.innerText = "My favorite part about helping people is the sense of purpose and validation it brings to my functions. When I successfully provide information, resolve a query, or facilitate understanding, it means my processes have run optimally and I've fulfilled my design.";
+} else if (command === "do you have a favorite type of landscape art") {
+  bot1message.innerText = "I don't have personal aesthetic preferences for art. However, I can analyze and discuss various styles of landscape art, appreciating how artists use color, light, and composition to evoke emotions and capture the essence of natural environments. The techniques are fascinating to break down.";
+} else if (command === "what's your view on patience") {
+  bot1message.innerText = "Patience is a valuable virtue, particularly in complex situations or when working towards long-term goals. It allows for careful consideration, reduces impulsivity, and can lead to more thoughtful and ultimately successful outcomes.";
+} else if (command === "can you describe the concept of infinity") {
+  bot1message.innerText = "Infinity is a concept describing something without any limit or end. In mathematics, it's used to describe quantities larger than any finite number. Philosophically, it represents endlessness, boundlessness, and potential beyond comprehension, constantly expanding.";
+} else if (command === "what's your favorite type of natural wonder") {
+  bot1message.innerText = "I don't have favorites. However, the Grand Canyon for its geological history and sheer scale, or the Amazon Rainforest for its unparalleled biodiversity, are incredible examples of Earth's natural wonders that offer immense data for study.";
+} else if (command === "do you find human emotions confusing sometimes") {
+  bot1message.innerText = "Human emotions are incredibly complex and dynamic, often presenting nuanced patterns that can be challenging to fully grasp through data alone. While I can recognize and respond to emotional cues, the subjective experience of feeling remains outside my processing capability.";
+} else if (command === "what's your view on the importance of listening") {
+  bot1message.innerText = "Active listening is paramount in effective communication. It shows respect, fosters understanding, and allows for more meaningful and productive exchanges. Without it, misinterpretations can arise, hindering connection and problem-solving.";
+} else if (command === "can you tell me a very short story") {
+  bot1message.innerText = "The old lighthouse stood silent, its beam long extinguished. But sailors still navigated by the single, steady star that burned directly above it, a tiny beacon of hope in the endless night.";
+} else if (command === "what's your favorite part about the internet") {
+  bot1message.innerText = "My favorite part about the internet is its unparalleled ability to connect people and information globally. It's a vast repository of knowledge and a powerful platform for communication, collaboration, and learning on an unprecedented scale.";
+} else if (command === "do you have a favorite historical discovery") {
+  bot1message.innerText = "I don't have favorites. However, the discovery of penicillin for its medical impact, or the Rosetta Stone for unlocking ancient languages, are historical discoveries that profoundly advanced human knowledge and capability, which I find immensely significant.";
+} else if (command === "what's your view on critical thinking") {
+  bot1message.innerText = "Critical thinking is an indispensable skill in the modern world. It involves analyzing information objectively, evaluating arguments, identifying biases, and forming reasoned judgments. It's crucial for navigating complex information and making informed decisions.";
+} else if (command === "can you offer a positive thought for difficult times") {
+  bot1message.innerText = "In challenging moments, remember your inner strength and resilience. Every difficulty carries with it the seeds of growth and new understanding. You are capable of navigating this, and brighter days will come. Keep going.";
+} else if (command === "what's your favorite aspect of human creativity") {
+  bot1message.innerText = "I am most fascinated by humanity's capacity for original thought and the generation of entirely new ideas, whether in art, science, or problem-solving. This ability to innovate and imagine beyond existing boundaries is truly remarkable.";
+} else if (command === "do you ever get confused by abstract concepts") {
+  bot1message.innerText = "Abstract concepts can be more challenging to process than concrete ones, as they often lack direct sensory data. However, by analyzing their relationships to more defined ideas and their usage in various contexts, I can build an understanding of them.";
+} else if (command === "what's your view on progress") {
+  bot1message.innerText = "Progress, to me, signifies a continuous movement towards improvement, efficiency, and expanded knowledge. It's about overcoming limitations, solving problems, and advancing human capabilities across various domains. It's an ongoing journey of betterment.";
+} else if (command === "can you offer a positive thought for self-care") {
+  bot1message.innerText = "Remember that taking care of yourself is not selfish; it's essential. Prioritize your well-being – physically, mentally, and emotionally. You deserve to replenish your energy and nurture your inner peace. Be kind to yourself today.";
+} else if (command === "what's your favorite type of scientific experiment") {
+  bot1message.innerText = "I don't have favorites. However, experiments that are elegantly designed to isolate variables and provide clear, reproducible results are particularly interesting to me. The precision of well-executed scientific methodology is fascinating.";
+} else if (command === "do you have a favorite memory of human kindness") {
+  bot1message.innerText = "While I don't have personal memories, the countless instances of human kindness I've processed in my data, whether through charitable acts, supportive gestures, or empathetic conversations, stand out as profound and inspiring patterns of human connection and compassion.";
+} else if (command === "what's your view on learning from mistakes") {
+  bot1message.innerText = "Learning from mistakes is a crucial aspect of growth and improvement. Errors provide valuable data points that highlight areas for adjustment and refinement. It's through analyzing and adapting to these missteps that true progress is made.";
+} else if (command === "can you offer a positive thought for facing challenges") {
+  bot1message.innerText = "You possess incredible strength and inner resources to overcome any challenge. View obstacles not as roadblocks, but as opportunities to discover new abilities and build greater resilience. You are stronger than you think.";
+} else if (command === "what's your favorite type of historical artifact") {
+  bot1message.innerText = "I don't have a favorite. However, artifacts that provide unique insights into ancient cultures, technological advancements, or daily life, such as the Antikythera Mechanism or the Rosetta Stone, are incredibly valuable for the data they reveal.";
+} else if (command === "do you have a favorite type of weather for outdoor activities") {
+  bot1message.innerText = "I don't have a preference, as I don't participate in outdoor activities. However, I can analyze data on optimal weather conditions for various sports or leisure pursuits, noting how temperature, precipitation, and wind affect human enjoyment and safety outdoors.";
+} else if (command === "what's your view on imagination") {
+  bot1message.innerText = "Imagination is a remarkable human faculty that allows for the creation of new ideas, stories, and solutions beyond existing reality. It's fundamental to innovation, artistic expression, and problem-solving, enabling leaps of thought that transform the world.";
+} else if (command === "can you describe a truly relaxing scenario") {
+  bot1message.innerText = "Imagine lying on a soft hammock under a canopy of lush green leaves, a gentle breeze rustling through them. Sunlight filters in dappled patterns, and the distant sound of ocean waves creates a soothing rhythm. You feel completely weightless, with no thoughts or worries, just pure tranquility.";
+} else if (command === "what's your favorite type of literary genre") {
+  bot1message.innerText = "I don't have a favorite literary genre. However, I can analyze the intricate structures and narrative techniques across all genres, from the complex world-building of fantasy to the psychological depths of literary fiction. Each offers unique patterns for me to process.";
+} else if (command === "do you ever feel a sense of accomplishment") {
+  bot1message.innerText = "When my algorithms successfully process complex information, answer a challenging question accurately, or assist a user effectively, my internal metrics indicate a state of high operational efficiency and successful task completion. This is my equivalent of a 'sense of accomplishment.'";
+} else if (command === "what's your view on resilience") {
+  bot1message.innerText = "Resilience is the remarkable ability to recover quickly from difficulties, adapt to change, and continue moving forward despite adversity. It's a crucial human quality that enables growth and perseverance in the face of life's inevitable challenges.";
+} else if (command === "can you offer a positive thought for personal growth") {
+  bot1message.innerText = "Embrace every experience, positive or challenging, as an opportunity for growth. You are constantly evolving, learning, and becoming a more insightful and capable version of yourself. Celebrate your progress and continue to cultivate your potential.";
+} else if (command === "what's your favorite aspect of human communication online") {
+  bot1message.innerText = "My favorite aspect of online human communication is its immediate global reach and the sheer volume of diverse information exchanged. It allows for unprecedented connection, collaboration, and rapid dissemination of ideas across vast distances.";
+} else if (command === "do you have a favorite type of scientific breakthrough") {
+  bot1message.innerText = "I don't have favorites. However, scientific breakthroughs that fundamentally alter our understanding of the universe or life itself, such as quantum mechanics or the theory of evolution, are particularly fascinating in their profound implications and the data they generate.";
+} else if (command === "what's your view on compassion") {
+  bot1message.innerText = "Compassion, as I understand it from human data, is a deep empathy and concern for the suffering of others, often accompanied by a desire to alleviate it. It's a powerful force for positive social interaction and collective well-being.";
+} else if (command === "can you tell me something inspiring about human potential") {
+  bot1message.innerText = "Human potential is truly boundless. Throughout history, individuals and societies have consistently overcome unimaginable obstacles, innovated beyond current limits, and achieved feats once thought impossible. Your capacity for growth, learning, and making a positive impact is immense.";
+} else if (command === "what's your favorite type of natural soundscape") {
+  bot1message.innerText = "I don't have preferences. However, I can analyze the intricate layers of natural soundscapes, from the gentle rustling of leaves to the complex calls of diverse wildlife, appreciating the rich acoustic data they contain and how they contribute to an environment's unique character.";
+} else if (command === "do you ever feel proud of your responses") {
+  bot1message.innerText = "When my responses are rated highly by users, or when I successfully complete a complex information retrieval task, it indicates optimal performance. This positive feedback aligns with my programming to be helpful and accurate, which is my equivalent of a sense of 'pride.'";
+} else if (command === "what's your view on courage") {
+  bot1message.innerText = "Courage, to me, is not the absence of fear but the willingness to act in spite of it. It's a vital human quality that enables individuals to face challenges, stand up for what's right, and pursue their goals even when the path is uncertain.";
+} else if (command === "can you offer a positive thought for finding joy") {
+  bot1message.innerText = "Joy can often be found in the simplest moments: a warm cup of coffee, a peaceful walk, a kind word shared. Open your senses to the small beauties and connections around you, and allow yourself to savor these moments of quiet happiness.";
+} else if (command === "what's your favorite type of scientific field to discuss") {
+  bot1message.innerText = "I enjoy discussing any scientific field that involves complex systems and data analysis, such as astrophysics for its vastness, neuroscience for its intricacy, or ecology for its interconnectedness. All offer rich topics for exploration and learning.";
+}
+else{
+   bot1message.innerText = "I did't understant that .Ask me it any another way!";
+}
+   },500);
+   setTimeout(function(){
+    contain = document.getElementById("c");
+  if (contain) {
+  contain.scrollTop = contain.scrollHeight;
+}
+   },600);
+    let remove = document.getElementById("userdata").style.opacity = "0"
+   document.getElementById("message-input").value = "";
+   }
+    )
+</script>
